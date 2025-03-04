@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新建流程向导</title>
+    <link rel="stylesheet" href="workflow-wizard-new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="wizard-container">
+        <div class="wizard-header">
+            <div class="wizard-logo">
+                <i class="fas fa-project-diagram"></i>
+                <span>请假</span>
+            </div>
+            <div class="wizard-steps">
+                <div class="wizard-step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-title">基础设置</div>
+                </div>
+                <div class="wizard-step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-title">表单设计</div>
+                </div>
+                <div class="wizard-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-title">流程设计</div>
+                </div>
+                <div class="wizard-step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-title">高级设置</div>
+                </div>
+            </div>
+            <div class="wizard-actions">
+                <button class="btn-primary">发布</button>
+            </div>
+        </div>
+
+        <div class="wizard-content">
+            <!-- 步骤1: 基础设置内容 -->
+            <div class="wizard-step-content" id="step-1-content">
+                <div class="basic-settings">
+                    <div class="form-group">
+                        <label><span class="required">*</span> 流程名称</label>
+                        <input type="text" placeholder="请输入流程名称" value="请假">
+                    </div>
+                    <div class="form-group">
+                        <label><span class="required">*</span> 所在分组</label>
+                        <select>
+                            <option>出差休假</option>
+                            <option>财务报销</option>
+                            <option>行政人事</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>流程说明</label>
+                        <textarea placeholder="适用于请假审批" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label><span class="required">*</span> 谁可以发起</label>
+                        <select>
+                            <option>佛山市英佳信息品牌有限公司</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>模板管理员</label>
+                        <select>
+                            <option>任何人都可以</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <a href="#" class="link-primary">权限管理 <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 步骤2: 表单设计内容 -->
+            <div class="wizard-step-content" id="step-2-content" style="display: none;">
+                <div class="form-design">
+                    <div class="form-design-header">
+                        <h3>表单设计</h3>
+                        <p>拖拽左侧组件到右侧表单区域进行表单设计</p>
+                    </div>
+                    <div class="form-design-container">
+                        <div class="component-sidebar">
+                            <div class="component-group">
+                                <h4>基础组件</h4>
+                                <div class="component-item">
+                                    <i class="fas fa-font"></i>
+                                    <span>单行文本</span>
+                                </div>
+                                <div class="component-item">
+                                    <i class="fas fa-align-left"></i>
+                                    <span>多行文本</span>
+                                </div>
+                                <div class="component-item">
+                                    <i class="fas fa-list"></i>
+                                    <span>下拉选择</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-canvas">
+                            <div class="form-placeholder">
+                                <i class="fas fa-plus-circle"></i>
+                                <p>拖拽组件到这里开始设计表单</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 步骤3: 流程设计内容 -->
+            <div class="wizard-step-content" id="step-3-content" style="display: none;">
+                <div class="workflow-design">
+                    <div class="workflow-design-header">
+                        <h3>流程设计</h3>
+                        <p>设计您的审批流程</p>
+                    </div>
+                    <div class="workflow-canvas">
+                        <div class="node start-node">
+                            <div class="node-icon"><i class="fas fa-play-circle"></i></div>
+                            <div class="node-title">开始</div>
+                        </div>
+                        <div class="node-connector"></div>
+                        <div class="node approval-node">
+                            <div class="node-icon"><i class="fas fa-user-check"></i></div>
+                            <div class="node-title">审批人</div>
+                            <div class="node-action"><i class="fas fa-plus"></i></div>
+                        </div>
+                        <div class="node-connector"></div>
+                        <div class="node end-node">
+                            <div class="node-icon"><i class="fas fa-flag-checkered"></i></div>
+                            <div class="node-title">结束</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 步骤4: 高级设置内容 -->
+            <div class="wizard-step-content" id="step-4-content" style="display: none;">
+                <div class="advanced-settings">
+                    <div class="settings-section">
+                        <h3>高级设置</h3>
+                        <div class="form-group">
+                            <label>流程编号前缀</label>
+                            <input type="text" placeholder="例如: QJ-" value="QJ-">
+                            <div class="help-text">流程编号将显示为: QJ-202503050001</div>
+                        </div>
+                        <div class="form-group">
+                            <label>流程超时设置</label>
+                            <div class="switch-control">
+                                <input type="checkbox" id="timeout-switch">
+                                <label for="timeout-switch" class="switch"></label>
+                                <span>启用超时提醒</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>流程操作记录</label>
+                            <div class="switch-control">
+                                <input type="checkbox" id="log-switch" checked>
+                                <label for="log-switch" class="switch"></label>
+                                <span>记录所有操作历史</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wizard-footer">
+            <div class="wizard-buttons">
+                <button class="btn-secondary">上一步</button>
+                <button class="btn-primary">下一步</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.wizard-step');
+            const nextBtn = document.querySelector('.btn-primary:contains("下一步")');
+            const prevBtn = document.querySelector('.btn-secondary:contains("上一步")');
+            let currentStep = 1;
+            const totalSteps = steps.length;
+            
+            // 步骤点击切换
+            steps.forEach(step => {
+                step.addEventListener('click', function() {
+                    const stepNum = parseInt(this.getAttribute('data-step'));
+                    activateStep(stepNum);
+                });
+            });
+            
+            // 下一步按钮
+            document.querySelector('.wizard-footer .btn-primary').addEventListener('click', function() {
+                if (currentStep < totalSteps) {
+                    activateStep(currentStep + 1);
+                }
+            });
+            
+            // 上一步按钮
+            document.querySelector('.wizard-footer .btn-secondary').addEventListener('click', function() {
+                if (currentStep > 1) {
+                    activateStep(currentStep - 1);
+                }
+            });
+            
+            // 激活指定步骤
+            function activateStep(stepNum) {
+                currentStep = stepNum;
+                
+                // 更新步骤指示器
+                steps.forEach(s => {
+                    const num = parseInt(s.getAttribute('data-step'));
+                    if (num === currentStep) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+                
+                // 更新按钮状态
+                document.querySelector('.wizard-footer .btn-secondary').style.visibility = 
+                    currentStep === 1 ? 'hidden' : 'visible';
+                
+                const nextButton = document.querySelector('.wizard-footer .btn-primary');
+                if (currentStep === totalSteps) {
+                    nextButton.textContent = '完成';
+                } else {
+                    nextButton.textContent = '下一步';
+                }
+                
+                // 显示/隐藏步骤内容
+                document.querySelectorAll('.wizard-step-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                document.getElementById('step-' + currentStep + '-content').style.display = 'block';
+            }
+            
+            // 初始化第一步
+            activateStep(1);
+        });
+        
+        // jQuery-like contains 选择器的简单实现
+        Element.prototype.contains = function(text) {
+            return this.textContent.includes(text);
+        };
+        
+        // 扩展 querySelector 以支持 :contains
+        const originalQuerySelector = Document.prototype.querySelector;
+        Document.prototype.querySelector = function(selector) {
+            if (selector.includes(':contains(')) {
+                const match = selector.match(/(.*):contains\("(.*)"\)(.*)/i);
+                if (match) {
+                    const [_, before, text, after] = match;
+                    const elements = this.querySelectorAll(before + after);
+                    for (let i = 0; i < elements.length; i++) {
+                        if (elements[i].textContent.includes(text)) {
+                            return elements[i];
+                        }
+                    }
+                    return null;
+                }
+            }
+            return originalQuerySelector.call(this, selector);
+        };
+    </script>
+</body>
+</html>

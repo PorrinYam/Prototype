@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="avatarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#4fc3f7" />
+    </linearGradient>
+    <clipPath id="circleClip">
+      <circle cx="50" cy="50" r="48" />
+    </clipPath>
+  </defs>
+  
+  <!-- Circle background -->
+  <circle cx="50" cy="50" r="48" fill="url(#avatarGradient)" stroke="#ffffff" stroke-width="2" />
+  
+  <!-- User silhouette -->
+  <g fill="#ffffff" clip-path="url(#circleClip)">
+    <!-- Head -->
+    <circle cx="50" cy="40" r="16" />
+    
+    <!-- Body -->
+    <path d="M50,60 C33,60 20,74 20,90 L80,90 C80,74 67,60 50,60 Z" />
+  </g>
+  
+  <!-- Optional decorative elements -->
+  <circle cx="50" cy="50" r="48" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.8" />
+  
+  <!-- Subtle pattern overlay -->
+  <circle cx="50" cy="50" r="48" fill="url(#avatarGradient)" fill-opacity="0.1" />
+</svg>

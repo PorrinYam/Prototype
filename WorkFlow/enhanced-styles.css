@@ -1,0 +1,95 @@
+/* 增强样式 - 修复字体可见性问题 */
+
+/* 确保所有文本有足够的对比度 */
+body {
+    color: #333;
+}
+
+/* 修复工作台卡片标题文本颜色 */
+.stat-info h3 {
+    color: #333;
+    font-weight: 500;
+}
+
+/* 确保侧边栏文本可见 */
+.sidebar .nav-item span {
+    color: #fff;
+    font-weight: 400;
+}
+
+/* 确保AIReach logo文字可见 */
+.logo span {
+    color: #ffffff;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* 确保页面标题可见 */
+.page-title h1 {
+    color: #333;
+}
+
+/* 确保最近区域标题可见 */
+.section-header h2 {
+    color: #333;
+}
+
+/* 确保任务项目标题可见 */
+.task-item h4 {
+    color: #333;
+}
+
+/* 确保所有段落文本可见 */
+p {
+    color: #555;
+}
+
+/* 确保表单标签可见 */
+label {
+    color: #333;
+}
+
+/* 确保按钮文本可见 */
+button, .btn {
+    color: #fff;
+}
+
+/* 确保链接文本可见 */
+a {
+    color: #4f46e5;
+}
+
+/* 确保表格文本可见 */
+table {
+    color: #333;
+}
+
+/* 确保下拉菜单文本可见 */
+select, option {
+    color: #333;
+}
+
+/* 确保输入框文本可见 */
+input, textarea {
+    color: #333;
+}
+
+/* 修复用户头像显示问题 */
+.user-info img {
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    object-fit: cover;
+}
+
+/* 确保用户名文本在侧边栏中可见 */
+.sidebar-footer .user-info span {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* 确保顶部栏用户信息可见 */
+.top-bar .user-info span {
+    color: #333;
+    font-weight: 500;
+}

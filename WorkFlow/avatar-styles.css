@@ -1,0 +1,80 @@
+/* Avatar styling */
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.user-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-color: rgba(79, 70, 229, 0.5);
+}
+
+/* Top bar user avatar styling */
+.top-bar .user-avatar {
+    width: 36px;
+    height: 36px;
+}
+
+/* Sidebar user avatar styling */
+.sidebar-footer .user-avatar {
+    width: 32px;
+    height: 32px;
+}
+
+/* User profile avatar styling - for larger displays */
+.user-profile .user-avatar {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    border-width: 2px;
+}
+
+/* Avatar with status indicator */
+.avatar-with-status {
+    position: relative;
+}
+
+.status-indicator {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    bottom: 0;
+    right: 0;
+    border: 2px solid #1e293b;
+}
+
+.status-online {
+    background-color: #10b981;
+}
+
+.status-away {
+    background-color: #f59e0b;
+}
+
+.status-offline {
+    background-color: #6b7280;
+}
+
+.status-busy {
+    background-color: #ef4444;
+}
+
+/* Avatar placeholder with initials */
+.avatar-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+}

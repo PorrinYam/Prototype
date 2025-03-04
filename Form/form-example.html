@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表单样式规范示例</title>
+  <link rel="stylesheet" href="form-style-guide.css">
+</head>
+<body>
+  <div class="form-container">
+    <!-- 表单头部 -->
+    <div class="form-header">
+      <h1 class="form-title">用户满意度调查问卷</h1>
+      <p class="form-description">感谢您参与本次调查，您的反馈对我们非常重要。本问卷大约需要3-5分钟完成，所有信息将被严格保密。</p>
+    </div>
+
+    <!-- 表单内容 -->
+    <div class="form-content">
+      <!-- 基本信息部分 -->
+      <div class="form-item required">
+        <div class="form-item-label">您的姓名</div>
+        <input type="text" class="form-input" placeholder="请输入您的姓名">
+      </div>
+
+      <div class="form-item required">
+        <div class="form-item-label">联系电话</div>
+        <input type="tel" class="form-input" placeholder="请输入您的联系电话">
+      </div>
+
+      <div class="form-item">
+        <div class="form-item-label">电子邮箱</div>
+        <input type="email" class="form-input" placeholder="请输入您的电子邮箱">
+      </div>
+
+      <div class="form-item required">
+        <div class="form-item-label">您的性别</div>
+        <div class="radio-group">
+          <label class="radio-item">
+            <input type="radio" name="gender" class="radio-input" value="male">
+            <span class="radio-custom"></span>
+            <span class="radio-label">男</span>
+          </label>
+          <label class="radio-item">
+            <input type="radio" name="gender" class="radio-input" value="female">
+            <span class="radio-custom"></span>
+            <span class="radio-label">女</span>
+          </label>
+          <label class="radio-item">
+            <input type="radio" name="gender" class="radio-input" value="other">
+            <span class="radio-custom"></span>
+            <span class="radio-label">其他</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-item required">
+        <div class="form-item-label">您的年龄段</div>
+        <select class="form-select">
+          <option value="" disabled selected>请选择您的年龄段</option>
+          <option value="18-24">18-24岁</option>
+          <option value="25-34">25-34岁</option>
+          <option value="35-44">35-44岁</option>
+          <option value="45-54">45-54岁</option>
+          <option value="55+">55岁及以上</option>
+        </select>
+      </div>
+
+      <!-- 调查问题部分 -->
+      <div class="form-item required">
+        <div class="form-item-label">您对我们的产品总体满意度如何？</div>
+        <div class="form-item-description">请根据您的使用体验进行评价</div>
+        <div class="form-rating">
+          <div class="form-rating-item" data-value="1">1</div>
+          <div class="form-rating-item" data-value="2">2</div>
+          <div class="form-rating-item" data-value="3">3</div>
+          <div class="form-rating-item selected" data-value="4">4</div>
+          <div class="form-rating-item" data-value="5">5</div>
+        </div>
+      </div>
+      
+      <div class="form-item required">
+        <div class="form-item-label">您对我们的客户服务满意度如何？</div>
+        <div class="form-item-description">请为我们的客户服务评分</div>
+        <div class="form-rating star-rating">
+          <div class="form-rating-item" data-value="1">★</div>
+          <div class="form-rating-item" data-value="2">★</div>
+          <div class="form-rating-item" data-value="3">★</div>
+          <div class="form-rating-item selected" data-value="4">★</div>
+          <div class="form-rating-item" data-value="5">★</div>
+        </div>
+      </div>
+      
+      <div class="form-item required">
+        <div class="form-item-label">您对我们的产品界面设计满意度如何？</div>
+        <div class="form-item-description">请选择一个表情来表达您的感受</div>
+        <div class="form-rating emoji-rating">
+          <div class="form-rating-item" data-value="1">😞</div>
+          <div class="form-rating-item" data-value="2">😐</div>
+          <div class="form-rating-item selected" data-value="3">😊</div>
+          <div class="form-rating-item" data-value="4">😄</div>
+          <div class="form-rating-item" data-value="5">😍</div>
+        </div>
+      </div>
+
+      <div class="form-item required">
+        <div class="form-item-label">您最常使用我们产品的哪些功能？</div>
+        <div class="form-item-description">可多选</div>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" name="features" class="checkbox-input" value="feature1">
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-label">数据分析</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="features" class="checkbox-input" value="feature2">
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-label">报表生成</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="features" class="checkbox-input" value="feature3">
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-label">文件管理</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="features" class="checkbox-input" value="feature4">
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-label">团队协作</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="features" class="checkbox-input" value="feature5">
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-label">自动化工作流</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-item">
+        <div class="form-item-label">您是从哪里了解到我们的产品的？</div>
+        <select class="form-select">
+          <option value="" disabled selected>请选择信息来源</option>
+          <option value="search">搜索引擎</option>
+          <option value="social">社交媒体</option>
+          <option value="friend">朋友推荐</option>
+          <option value="ad">广告</option>
+          <option value="other">其他渠道</option>
+        </select>
+      </div>
+
+      <div class="form-item">
+        <div class="form-item-label">您最近一次使用我们产品的时间？</div>
+        <input type="date" class="form-date">
+      </div>
+
+      <div class="form-item required">
+        <div class="form-item-label">您对我们产品有什么建议或意见？</div>
+        <textarea class="form-textarea" placeholder="请输入您的建议或意见，以帮助我们改进产品"></textarea>
+      </div>
+
+      <div class="form-item">
+        <div class="form-item-label">如果您遇到了问题，可以上传相关截图</div>
+        <div class="file-upload">
+          <label class="file-upload-button">
+            <span class="file-upload-icon">📎</span>
+            <span>选择文件</span>
+            <input type="file" class="file-upload-input">
+          </label>
+          <div class="file-upload-preview" style="display: none;">
+            <span class="file-upload-name">screenshot.png</span>
+            <span class="file-upload-remove">✕</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 表单底部 -->
+    <div class="form-footer">
+      <button type="button" class="form-button form-button-secondary">重置</button>
+      <button type="submit" class="form-button form-button-primary">提交</button>
+    </div>
+
+    <!-- 表单分页 -->
+    <div class="form-pagination">
+      <div class="form-pagination-prev disabled">&lt;</div>
+      <div class="form-pagination-item active">1</div>
+      <div class="form-pagination-item">2</div>
+      <div class="form-pagination-item">3</div>
+      <div class="form-pagination-next">&gt;</div>
+    </div>
+  </div>
+
+  <script>
+    // 简单的文件上传预览功能
+    document.querySelector('.file-upload-input').addEventListener('change', function(e) {
+      const fileName = e.target.files[0]?.name || '';
+      const preview = document.querySelector('.file-upload-preview');
+      const nameEl = document.querySelector('.file-upload-name');
+      
+      if (fileName) {
+        nameEl.textContent = fileName;
+        preview.style.display = 'flex';
+      } else {
+        preview.style.display = 'none';
+      }
+    });
+
+    document.querySelector('.file-upload-remove').addEventListener('click', function() {
+      document.querySelector('.file-upload-input').value = '';
+      document.querySelector('.file-upload-preview').style.display = 'none';
+    });
+    
+    // 评分组件交互
+    document.querySelectorAll('.form-rating').forEach(ratingGroup => {
+      const ratingItems = ratingGroup.querySelectorAll('.form-rating-item');
+      
+      ratingItems.forEach(item => {
+        item.addEventListener('click', function() {
+          // 移除其他项的选中状态
+          ratingItems.forEach(i => i.classList.remove('selected'));
+          // 添加当前项的选中状态
+          this.classList.add('selected');
+        });
+      });
+    });
+    
+    // 分页交互
+    document.querySelectorAll('.form-pagination-item').forEach(item => {
+      item.addEventListener('click', function() {
+        // 移除其他项的选中状态
+        document.querySelectorAll('.form-pagination-item').forEach(i => i.classList.remove('active'));
+        // 添加当前项的选中状态
+        this.classList.add('active');
+        
+        // 更新前进/后退按钮状态
+        const pageItems = Array.from(document.querySelectorAll('.form-pagination-item'));
+        const currentIndex = pageItems.indexOf(this);
+        const prevButton = document.querySelector('.form-pagination-prev');
+        const nextButton = document.querySelector('.form-pagination-next');
+        
+        if (currentIndex === 0) {
+          prevButton.classList.add('disabled');
+        } else {
+          prevButton.classList.remove('disabled');
+        }
+        
+        if (currentIndex === pageItems.length - 1) {
+          nextButton.classList.add('disabled');
+        } else {
+          nextButton.classList.remove('disabled');
+        }
+      });
+    });
+    
+    // 前进按钮交互
+    document.querySelector('.form-pagination-next').addEventListener('click', function() {
+      if (this.classList.contains('disabled')) return;
+      
+      const activeItem = document.querySelector('.form-pagination-item.active');
+      const nextItem = activeItem.nextElementSibling;
+      
+      if (nextItem && nextItem.classList.contains('form-pagination-item')) {
+        nextItem.click();
+      }
+    });
+    
+    // 后退按钮交互
+    document.querySelector('.form-pagination-prev').addEventListener('click', function() {
+      if (this.classList.contains('disabled')) return;
+      
+      const activeItem = document.querySelector('.form-pagination-item.active');
+      const prevItem = activeItem.previousElementSibling;
+      
+      if (prevItem && prevItem.classList.contains('form-pagination-item')) {
+        prevItem.click();
+      }
+    });
+  </script>
+</body>
+</html>
