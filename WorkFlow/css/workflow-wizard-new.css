@@ -85,6 +85,21 @@ textarea:focus {
     margin-right: 40px;
 }
 
+.wizard-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.wizard-actions .wizard-buttons {
+    display: flex;
+    margin-right: 10px;
+}
+
+.wizard-actions .btn-secondary {
+    margin-right: 8px;
+}
+
 .wizard-steps {
     display: flex;
     align-items: center;
@@ -366,13 +381,9 @@ input[type="checkbox"] {
     display: none;
 }
 
+/* 底部按钮已移至顶部 */
 .wizard-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 24px;
-    border-top: 1px solid #e2e8f0;
-    background-color: #fff;
+    display: none;
 }
 
 .btn-primary {

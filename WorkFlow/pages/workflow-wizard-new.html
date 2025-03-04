@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新建流程向导</title>
-    <link rel="stylesheet" href="workflow-wizard-new.css">
+    <link rel="stylesheet" href="../css/workflow-wizard-new.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -33,7 +33,11 @@
                 </div>
             </div>
             <div class="wizard-actions">
-                <button class="btn-primary">发布</button>
+                <div class="wizard-buttons">
+                    <button class="btn-secondary">上一步</button>
+                    <button class="btn-primary step-btn">下一步</button>
+                </div>
+                <button class="btn-primary publish-btn">发布</button>
             </div>
         </div>
 
@@ -168,12 +172,7 @@
             </div>
         </div>
 
-        <div class="wizard-footer">
-            <div class="wizard-buttons">
-                <button class="btn-secondary">上一步</button>
-                <button class="btn-primary">下一步</button>
-            </div>
-        </div>
+        <!-- 底部操作按钮已移至顶部 -->
     </div>
 
     <script>
@@ -193,17 +192,22 @@
             });
             
             // 下一步按钮
-            document.querySelector('.wizard-footer .btn-primary').addEventListener('click', function() {
+            document.querySelector('.wizard-actions .step-btn').addEventListener('click', function() {
                 if (currentStep < totalSteps) {
                     activateStep(currentStep + 1);
                 }
             });
             
             // 上一步按钮
-            document.querySelector('.wizard-footer .btn-secondary').addEventListener('click', function() {
+            document.querySelector('.wizard-actions .btn-secondary').addEventListener('click', function() {
                 if (currentStep > 1) {
                     activateStep(currentStep - 1);
                 }
+            });
+            
+            // 发布按钮
+            document.querySelector('.wizard-actions .publish-btn').addEventListener('click', function() {
+                alert('流程已发布！');
             });
             
             // 激活指定步骤
@@ -221,10 +225,10 @@
                 });
                 
                 // 更新按钮状态
-                document.querySelector('.wizard-footer .btn-secondary').style.visibility = 
+                document.querySelector('.wizard-actions .btn-secondary').style.visibility = 
                     currentStep === 1 ? 'hidden' : 'visible';
                 
-                const nextButton = document.querySelector('.wizard-footer .btn-primary');
+                const nextButton = document.querySelector('.wizard-actions .step-btn');
                 if (currentStep === totalSteps) {
                     nextButton.textContent = '完成';
                 } else {

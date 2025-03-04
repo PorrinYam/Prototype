@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const createWorkflowBtn = document.getElementById('create-workflow');
     if (createWorkflowBtn) {
         createWorkflowBtn.addEventListener('click', function() {
-            window.location.href = 'workflow-wizard-new.html';
+            window.location.href = 'pages/workflow-wizard-new.html';
         });
     }
     
@@ -501,7 +501,7 @@ function initPublishManagement() {
         if (createWorkflowBtn) {
             createWorkflowBtn.addEventListener('click', function() {
                 // 切换到工作流向导页面
-                window.location.href = 'workflow-wizard-new.html';
+                window.location.href = 'pages/workflow-wizard-new.html';
             });
         }
     }
