@@ -407,3 +407,321 @@ input[type="checkbox"] {
     cursor: pointer;
     border: none;
 }
+
+/* 模板选择样式 */
+.section-divider {
+    display: flex;
+    align-items: center;
+    margin: 30px 0 10px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #e2e8f0;
+}
+
+.section-divider::before {
+    margin-right: 15px;
+}
+
+.section-divider::after {
+    margin-left: 15px;
+}
+
+/* 模板选择样式 - 小卡片横向布局 */
+.template-selection {
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 15px;
+}
+
+.template-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.template-row::-webkit-scrollbar {
+    height: 6px;
+}
+
+.template-row::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.template-row::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 10px;
+}
+
+.template-mini-card {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    height: 90px;
+    padding: 10px 5px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    margin-bottom: 5px;
+    z-index: 1;
+}
+
+.template-mini-card:hover {
+    border-color: #4f46e5;
+    box-shadow: 0 2px 6px rgba(79, 70, 229, 0.1);
+}
+
+.template-mini-card.selected {
+    border-color: #4f46e5;
+    background-color: rgba(79, 70, 229, 0.05);
+}
+
+.mini-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: #f1f5f9;
+    color: #4f46e5;
+    margin-bottom: 8px;
+}
+
+.mini-card-icon i {
+    font-size: 16px;
+}
+
+.mini-card-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: #1e293b;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.template-mini-card input[type="radio"] {
+    display: none;
+}
+
+.template-mini-card label {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #e2e8f0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    z-index: 2;
+}
+
+.template-mini-card input[type="radio"]:checked + label {
+    border-color: #4f46e5;
+}
+
+.template-mini-card input[type="radio"]:checked + label::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #4f46e5;
+}
+
+/* 确保模板卡片在选中时有明显的视觉反馈 */
+.template-mini-card.selected {
+    border-color: #4f46e5;
+    background-color: rgba(79, 70, 229, 0.05);
+    box-shadow: 0 2px 6px rgba(79, 70, 229, 0.15);
+}
+
+.template-mini-card[data-template="more"] {
+    border: 1px dashed #cbd5e1;
+    background-color: #f8fafc;
+}
+
+/* 模板选择样式 */
+.section-divider {
+    display: flex;
+    align-items: center;
+    margin: 30px 0 10px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #e2e8f0;
+}
+
+.section-divider::before {
+    margin-right: 15px;
+}
+
+.section-divider::after {
+    margin-left: 15px;
+}
+
+/* 模板选择样式 - 小卡片横向布局 */
+.template-selection {
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 15px;
+}
+
+.template-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.template-row::-webkit-scrollbar {
+    height: 6px;
+}
+
+.template-row::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.template-row::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 10px;
+}
+
+.template-mini-card {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    height: 90px;
+    padding: 10px 5px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    margin-bottom: 5px;
+    z-index: 1;
+}
+
+.template-mini-card:hover {
+    border-color: #4f46e5;
+    box-shadow: 0 2px 6px rgba(79, 70, 229, 0.1);
+}
+
+.template-mini-card.selected {
+    border-color: #4f46e5;
+    background-color: rgba(79, 70, 229, 0.05);
+}
+
+.mini-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: #f1f5f9;
+    color: #4f46e5;
+    margin-bottom: 8px;
+}
+
+.mini-card-icon i {
+    font-size: 16px;
+}
+
+.mini-card-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: #1e293b;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.template-mini-card input[type="radio"] {
+    display: none;
+}
+
+.template-mini-card label {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #e2e8f0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    z-index: 2;
+}
+
+.template-mini-card input[type="radio"]:checked + label {
+    border-color: #4f46e5;
+}
+
+.template-mini-card input[type="radio"]:checked + label::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #4f46e5;
+}
+
+/* 确保模板卡片在选中时有明显的视觉反馈 */
+.template-mini-card.selected {
+    border-color: #4f46e5;
+    background-color: rgba(79, 70, 229, 0.05);
+    box-shadow: 0 2px 6px rgba(79, 70, 229, 0.15);
+}
+
+.template-mini-card[data-template="more"] {
+    border: 1px dashed #cbd5e1;
+    background-color: #f8fafc;
+}
