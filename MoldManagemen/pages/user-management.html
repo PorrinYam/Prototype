@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户管理 - 模具管理系统</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .user-management-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+        }
+
+        .permission-tree {
+            background: var(--background-light);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+        }
+
+        .permission-item {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="view-header">
+        <h2>用户管理</h2>
+        <div class="view-actions">
+            <button class="btn btn-primary" id="add-user-btn">
+                <i class="fas fa-plus"></i> 新建用户
+            </button>
+        </div>
+    </div>
+
+    <div class="user-management-grid">
+        <div class="user-list">
+            <div class="card">
+                <div class="table-header">
+                    <h3>用户列表</h3>
+                    <div class="table-actions">
+                        <input type="text" class="form-control search-input" placeholder="搜索用户...">
+                    </div>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>用户名</th>
+                            <th>角色</th>
+                            <th>最后登录</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>admin</td>
+                            <td><span class="role-tag primary">系统管理员</span></td>
+                            <td>2023-07-20 09:30</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-icon edit-btn" title="编辑">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon permission-btn" title="权限设置">
+                                        <i class="fas fa-user-lock"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="permission-section">
+            <div class="card">
+                <h3>权限设置</h3>
+                <div class="permission-tree">
+                    <div class="permission-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox"> 模具信息管理
+                        </label>
+                    </div>
+                    <div class="permission-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox"> 库存管理
+                        </label>
+                    </div>
+                    <div class="permission-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox"> 使用管理
+                        </label>
+                    </div>
+                    <div class="permission-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox"> 维护管理
+                        </label>
+                    </div>
+                    <div class="permission-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox"> 统计分析
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

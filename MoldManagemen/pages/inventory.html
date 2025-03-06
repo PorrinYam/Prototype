@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模具库存管理 - 模具管理系统</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* 库存管理特定样式 */
+        .inventory-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .inventory-tab {
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .inventory-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+        
+        .inventory-tab:hover {
+            color: var(--primary-color);
+        }
+        
+        .inventory-content {
+            display: none;
+        }
+        
+        .inventory-content.active {
+            display: block;
+        }
+        
+        .location-tag {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background-color: #e2e8f0;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .warning-level {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .warning-level.normal {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+        
+        .warning-level.warning {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+        
+        .warning-level.alert {
+            background-color: #fee2e2;
+            color: #b91c1c;
+        }
+        
+        .inventory-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .form-full-width {
+            grid-column: span 2;
+        }
+        
+        .inventory-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat-card {
+            background-color: var(--background-light);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .stat-card h4 {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .stat-card .stat-change {
+            display: flex;
+            align-items: center;
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+        }
+        
+        .stat-card .stat-change.positive {
+            color: var(--success-color);
+        }
+        
+        .stat-card .stat-change.negative {
+            color: var(--danger-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="view-header">
+        <h2>模具库存管理</h2>
+    </div>
+    
+    <div class="inventory-stats">
+        <div class="stat-card">
+            <h4>库存总数</h4>
+            <div class="stat-value">256</div>
+            <div class="stat-change positive">
+                <i class="fas fa-arrow-up"></i> 5% 较上月
+            </div>
+        </div>
+        <div class="stat-card">
+            <h4>本月入库</h4>
+            <div class="stat-value">18</div>
+            <div class="stat-change positive">
+                <i class="fas fa-arrow-up"></i> 12% 较上月
+            </div>
+        </div>
+        <div class="stat-card">
+            <h4>本月出库</h4>
+            <div class="stat-value">23</div>
+            <div class="stat-change negative">
+                <i class="fas fa-arrow-down"></i> 8% 较上月
+            </div>
+        </div>
+        <div class="stat-card">
+            <h4>库存预警</h4>
+            <div class="stat-value">7</div>
+            <div class="stat-change negative">
+                <i class="fas fa-arrow-up"></i> 3 较上月
+            </div>
+        </div>
+    </div>
+    
+    <div class="inventory-tabs">
+        <div class="inventory-tab active" data-target="inventory-list">库存列表</div>
+        <div class="inventory-tab" data-target="inventory-in">入库管理</div>
+        <div class="inventory-tab" data-target="inventory-out">出库管理</div>
+        <div class="inventory-tab" data-target="inventory-check">库存盘点</div>
+        <div class="inventory-tab" data-target="inventory-warning">库存预警</div>
+    </div>
+    
+    <!-- 库存列表 -->
+    <div class="inventory-content active" id="inventory-list">
+        <div class="filter-bar">
+            <div class="filter-group">
+                <input type="text" placeholder="模具编号" class="filter-input">
+            </div>
+            <div class="filter-group">
+                <input type="text" placeholder="模具名称" class="filter-input">
+            </div>
+            <div class="filter-group">
+                <select class="filter-select">
+                    <option value="">选择模具类型</option>
+                    <option value="injection">注塑模具</option>
+                    <option value="die-casting">压铸模具</option>
+                    <option value="stamping">冲压模具</option>
+                    <option value="forging">锻造模具</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <select class="filter-select">
+                    <option value="">存放位置</option>
+                    <option value="warehouse-a">A仓库</option>
+                    <option value="warehouse-b">B仓库</option>
+                    <option value="warehouse-c">C仓库</option>
+                </select>
+            </div>
+            <button class="btn btn-search">
+                <i class="fas fa-search"></i> 搜索
+            </button>
+            <button class="btn btn-reset">
+                <i class="fas fa-redo"></i> 重置
+            </button>
+        </div>
+        
+        <div class="data-table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" class="select-all"></th>
+                        <th>模具编号 <i class="fas fa-sort"></i></th>
+                        <th>模具名称 <i class="fas fa-sort"></i></th>
+                        <th>模具类型 <i class="fas fa-sort"></i></th>
+                        <th>存放位置 <i class="fas fa-sort"></i></th>
+                        <th>库存数量 <i class="fas fa-sort"></i></th>
+                        <th>最低库存 <i class="fas fa-sort"></i></th>
+                        <th>预警级别 <i class="fas fa-sort"></i></th>
+                        <th>最近入库 <i class="fas fa-sort"></i></th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" class="select-item"></td>
+                        <td>MJ-2023-001</td>
+                        <td>手机后壳模具</td>
+                        <td>注塑模具</td>
+                        <td><span class="location-tag">A仓库-A12-3</span></td>
+                        <td>5</td>
+                        <td>2</td>
+                        <td><span class="warning-level normal">正常</span></td>
+                        <td>2023-05-15</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon view-btn" title="查看详情">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon edit-btn" title="编辑">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon in-btn" title="入库">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </button>
+                                <button class="btn-icon out-btn" title="出库">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="select-item"></td>
+                        <td>MJ-2023-002</td>
+                        <td>平板电脑外壳模具</td>
+                        <td>注塑模具</td>
+                        <td><span class="location-tag">B仓库-B05-2</span></td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td><span class="warning-level warning">警告</span></td>
+                        <td>2023-04-20</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon view-btn" title="查看详情">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon edit-btn" title="编辑">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon in-btn" title="入库">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </button>
+                                <button class="btn-icon out-btn" title="出库">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="select-item"></td>
+                        <td>MJ-2023-003</td>
+                        <td>汽车门把手模具</td>
+                        <td>压铸模具</td>
+                        <td><span class="location-tag">A仓库-A08-1</span></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td><span class="warning-level alert">紧急</span></td>
+                        <td>2023-03-10</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon view-btn" title="查看详情">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon edit-btn" title="编辑">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon in-btn" title="入库">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </button>
+                                <button class="btn-icon out-btn" title="出库">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- 入库管理 -->
+    <div class="inventory-content" id="inventory-in">
+        <div class="card">
+            <h3>模具入库</h3>
+            <form class="inventory-form">
+                <div class="form-group">
+                    <label class="form-label">模具编号</label>
+                    <div class="form-control-with-button">
+                        <input type="text" class="form-control" placeholder="输入模具编号">
+                        <button type="button" class="btn btn-secondary">选择</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">模具名称</label>
+                    <input type="text" class="form-control" placeholder="自动填充" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">模具类型</label>
+                    <input type="text" class="form-control" placeholder="自动填充" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">入库数量</label>
+                    <input type="number" class="form-control" min="1" value="1">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">存放位置</label>
+                    <select class="form-control">
+                        <option value="">选择存放位置</option>
+                        <option value="warehouse-a-a12-3">A仓库-A12-3</option>
+                        <option value="warehouse-a-a12-4">A仓库-A12-4</option>
+                        <option value="

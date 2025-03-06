@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模具报废管理 - 模具管理系统</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* 报废管理特定样式 */
+        .scrap-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .scrap-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .scrap-tab {
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .scrap-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .scrap-content {
+            display: none;
+        }
+
+        .scrap-content.active {
+            display: block;
+        }
+
+        .dispose-method-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            background-color: var(--background-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="view-header">
+        <h2>模具报废管理</h2>
+    </div>
+
+    <div class="scrap-stats">
+        <div class="stat-card">
+            <h4>待审批报废</h4>
+            <div class="stat-value">5</div>
+        </div>
+        <div class="stat-card">
+            <h4>本月报废数量</h4>
+            <div class="stat-value">23</div>
+        </div>
+        <div class="stat-card">
+            <h4>报废总价值</h4>
+            <div class="stat-value">¥185,200</div>
+        </div>
+        <div class="stat-card">
+            <h4>回收收益</h4>
+            <div class="stat-value">¥32,500</div>
+        </div>
+    </div>
+
+    <div class="scrap-tabs">
+        <div class="scrap-tab active" data-target="scrap-apply">报废申请</div>
+        <div class="scrap-tab" data-target="scrap-approval">审批列表</div>
+        <div class="scrap-tab" data-target="scrap-records">处理记录</div>
+    </div>
+
+    <!-- 报废申请模块 -->
+    <div class="scrap-content active" id="scrap-apply">
+        <div class="card">
+            <h3>新建报废申请</h3>
+            <form class="scrap-form">
+                <div class="form-group">
+                    <label class="form-label">模具编号</label>
+                    <div class="form-control-with-button">
+                        <input type="text" class="form-control" placeholder="输入模具编号">
+                        <button type="button" class="btn btn-secondary">选择模具</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">报废原因</label>
+                        <select class="form-control">
+                            <option value="">选择报废原因</option>
+                            <option>自然寿命到期</option>
+                            <option>严重损坏</option>
+                            <option>技术淘汰</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">申请日期</label>
+                        <input type="date" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">详细说明</label>
+                    <textarea class="form-control" rows="3" placeholder="填写报废详细说明"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">提交申请</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 审批列表模块 -->
+    <div class="scrap-content" id="scrap-approval">
+        <div class="card">
+            <div class="table-header">
+                <h3>待审批列表</h3>
+                <div class="table-actions">
+                    <button class="btn btn-secondary">导出列表</button>
+                </div>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>申请单号</th>
+                        <th>模具编号</th>
+                        <th>申请人</th>
+                        <th>申请日期</th>
+                        <th>报废原因</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SC-202307-001</td>
+                        <td>MJ-2021-045</td>
+                        <td>王工程师</td>
+                        <td>2023-07-15</td>
+                        <td><span class="status-badge warning">自然寿命到期</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon approve-btn" title="批准">
+                                    <i class="fas fa-check-circle"></i>
+                                </button>
+                                <button class="btn-icon reject-btn" title="驳回">
+                                    <i class="fas fa-times-circle"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 处理记录模块 -->
+    <div class="scrap-content" id="scrap-records">
+        <div class="card">
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <input type="month" class="form-control" value="2023-07">
+                </div>
+                <div class="filter-group">
+                    <select class="form-control">
+                        <option value="">全部处理方式</option>
+                        <option>出售</option>
+                        <option>回收</option>
+                        <option>销毁</option>
+                    </select>
+                </div>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>处理单号</th>
+                        <th>模具编号</th>
+                        <th>处理方式</th>
+                        <th>处理日期</th>
+                        <th>处理金额</th>
+                        <th>操作人</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DI-202307-002</td>
+                        <td>MJ-2020-112</td>
+                        <td><span class="dispose-method-tag">金属回收</span></td>
+                        <td>2023-07-18</td>
+                        <td>¥2,500</td>
+                        <td>李管理员</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

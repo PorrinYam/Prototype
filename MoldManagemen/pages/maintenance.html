@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模具维护管理 - 模具管理系统</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* 维护管理特定样式 */
+        .maintenance-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .maintenance-tab {
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .maintenance-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+        
+        .maintenance-tab:hover {
+            color: var(--primary-color);
+        }
+        
+        .maintenance-content {
+            display: none;
+        }
+        
+        .maintenance-content.active {
+            display: block;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .status-badge.pending {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-badge.in-progress {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .status-badge.completed {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+        
+        .status-badge.overdue {
+            background-color: #fee2e2;
+            color: #b91c1c;
+        }
+        
+        .maintenance-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .form-full-width {
+            grid-column: span 2;
+        }
+        
+        .maintenance-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat-card {
+            background-color: var(--background-light);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .stat-card h4 {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .priority-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .priority-badge.high {
+            background-color: #fee2e2;
+            color: #b91c1c;
+        }
+        
+        .priority-badge.medium {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+        
+        .priority-badge.low {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.25rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            z-index: 1;
+        }
+        
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 1.25rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background-color: var(--border-color);
+        }
+        
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        
+        .timeline-date {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .timeline-content {
+            background-color: var(--background-light);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+    </style>
+</head>
+<body>
+    <div class="view-header">
+        <h2>模具维护管理</h2>
+    </div>
+    
+    <div class="maintenance-stats">
+        <div class="stat-card">
+            <h4>待维护模具</h4>
+            <div class="stat-value">13</div>
+        </div>
+        <div class="stat-card">
+            <h4>维护中模具</h4>
+            <div class="stat-value">5</div>
+        </div>
+        <div class="stat-card">
+            <h4>本月维护次数</h4>
+            <div class="stat-value">28</div>
+        </div>
+        <div class="stat-card">
+            <h4>逾期未维护</h4>
+            <div class="stat-value">3</div>
+        </div>
+    </div>
+    
+    <div class="maintenance-tabs">
+        <div class="maintenance-tab active" data-target="maintenance-plan">维护计划</div>
+        <div class="maintenance-tab" data-target="maintenance-task">维护任务</div>
+        <div class="maintenance-tab" data-target="maintenance-record">维护记录</div>
+        <div class="maintenance-tab" data-target="maintenance-reminder">维护提醒</div>
+    </div>
+    
+    <!-- 维护计划 -->
+    <div class="maintenance-content active" id="maintenance-plan">
+        <div class="view-actions" style="margin-bottom: 1rem;">
+            <button class="btn btn-primary" id="add-plan-btn">
+                <i class="fas fa-plus"></i> 新增维护计划
+            </button>
+        </div>
+        
+        <div class="filter-bar">
+            <div class="filter-group">
+                <input type="text" placeholder="模具编号" class="filter-input">
+            </div>
+            <div class="filter-group">
+                <input type="text" placeholder="模具名称" class="filter-input">
+            </div>
+            <div class="filter-group">
+                <select class="filter-select">
+                    <option value="">维护类型</option>
+                    <option value="regular">定期维护</option>
+                    <option value="special">专项维护</option>
+                    <option value="emergency">紧急维护</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <select class="filter-select">
+                    <option value="">计划状态</option>
+                    <option value="pending">待执行</option>
+                    <option value="in-progress">执行中</option>
+                    <option value="completed">已完成</option>
+                    <option value="overdue">已逾期</option>
+                </select>
+            </div>
+            <button class="btn btn-search">
+                <i class="fas fa-search"></i> 搜索
+            </button>
+            <button class="btn btn-reset">
+                <i class="fas fa-redo"></i> 重置
+            </button>
+        </div>
+        
+        <div class="data-table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" class="select-all"></th>
+                        <th>计划编号 <i class="fas fa-sort"></i></th>
+                        <th>模具编号 <i class="fas fa-sort"></i></th>
+                        <th>模具名称 <i class="fas fa-sort"></i></th>
+                        <th>维护类型 <i class="fas fa-sort"></i></th>
+                        <th>计划开始日期 <i class="fas fa-sort"></i></th>
+                        <th>计划结束日期 <i class="fas fa-sort"></i></th>
+                        <th>维护人员 <i class="fas fa-sort"></i></th>
+                        <th>状态 <i class="fas fa-sort"></i></th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" class="select-item"></td>
+                        <td>WH-2023-001</td>
+                        <td>MJ-2023-001</td>
+                        <td>手机后壳模具</td>
+                        <td>定期维护</td>
+                        <td>2023-06-20</td>
+                        <td>2023-06-21</td>
+                        <td>张工</td>
+                        <td><span class="status-badge pending">待执行</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon view-btn" title="查看详情">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon edit-btn" title="编辑">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon delete-btn" title="删除">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="select-item"></td>
+                        <td>WH-2023-002</td>
+                        <td>MJ-2023-003</td>
+                        <td>汽车门把手模具</td>
+                        <td>专项维护</td>
+                        <td>2023-06-15</td>
+                        <td>2023-06-18</td>
+                        <td>李工</td>
+                        <td><span class="status-badge in-progress">执行中</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon view-btn" title="查看详情">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon edit-btn" title="编辑">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon delete-btn" title="删除">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="select-item"></td>
+                        <td>WH-2023-003</td>
+                        <td>MJ-2023-002</td>
+                        <td>平板电脑外壳模具</td>
+                        <td>定期维护</td>
+                        <td>2023-06-10</td>
+                        <td>2023-06-12</td>
+                        <td>王工</td>
+                        <td><span class="status-badge completed">已完成</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon view-btn" title="查看详情">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon edit-btn" title="编辑">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon delete-btn" title="删除">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- 维护任务 -->
+    <div class="maintenance-content" id="maintenance-task">
+        <div class="filter-bar">
+            <div class="filter-group">
+                <input type="text" placeholder="任务编号" class="filter-input">
+            </div>
+            <div class="filter-group">
+                <input type="text" placeholder="模具编号" class="filter-input">
+            </div>
+            <div class="filter-group">
+                <select class="filter-select">
+                    <option value="">任务状态</option>
+                    <option value="pending">待执行</option>
+                    <option value="in-progress">执行中</option>
+                    <option value="completed">已完成</option>
+                    <option value="overdue">已逾期</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <select class="filter-select">
+                    <option value="">优先级</option>
+                    <option value="high">高</option>
+                    <option value="medium">中</option>
+                    <option value="low">低</option>
+                </select>
+            </div>
+            <button class="btn btn
