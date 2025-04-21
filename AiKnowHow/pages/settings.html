@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>系统设置 - 企业智能知识库应用</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body class="layout-full">
+  <!-- 头部导航栏 -->
+  <header class="header">
+    <div class="flex-between w-100">
+      <div class="flex">
+        <a href="../index.html" class="text-primary text-bold text-lg mr-20">
+          <i class="fa-solid fa-database mr-10"></i>
+          企业智能知识库
+        </a>
+
+        <nav class="main-nav">
+          <a href="datasets.html" class="nav-link">
+            <i class="fa-solid fa-layer-group mr-10"></i>知识库
+          </a>
+          <a href="applications.html" class="nav-link">
+            <i class="fa-solid fa-rocket mr-10"></i>应用管理
+          </a>
+          <a href="chat.html" class="nav-link">
+            <i class="fa-solid fa-comments mr-10"></i>智能问答
+          </a>
+          <a href="settings.html" class="nav-link active">
+            <i class="fa-solid fa-gear mr-10"></i>系统设置
+          </a>
+        </nav>
+      </div>
+
+      <div class="flex">
+        <div class="user-menu">
+          <a href="#" class="btn-text mr-10">
+            <i class="fa-solid fa-bell"></i>
+          </a>
+          <a href="#" class="btn-text mr-10">
+            <i class="fa-solid fa-user-circle"></i>
+            <span>管理员</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="container">
+    <div class="page-header">
+      <div>
+        <h2>系统设置</h2>
+        <p class="text-secondary">管理系统配置、用户权限和集成设置</p>
+      </div>
+    </div>
+
+    <!-- 设置页面侧边导航和内容区 -->
+    <div class="settings-layout">
+      <!-- 设置侧边导航 -->
+      <div class="settings-sidebar">
+        <nav class="settings-nav">
+          <a href="#general" class="settings-nav-item active">
+            <i class="fa-solid fa-sliders mr-10"></i>
+            <span>通用设置</span>
+          </a>
+          <a href="#users" class="settings-nav-item">
+            <i class="fa-solid fa-users mr-10"></i>
+            <span>用户管理</span>
+          </a>
+          <a href="#roles" class="settings-nav-item">
+            <i class="fa-solid fa-user-shield mr-10"></i>
+            <span>角色与权限</span>
+          </a>
+          <a href="#ai-models" class="settings-nav-item">
+            <i class="fa-solid fa-microchip mr-10"></i>
+            <span>AI模型配置</span>
+          </a>
+          <a href="#integrations" class="settings-nav-item">
+            <i class="fa-solid fa-plug mr-10"></i>
+            <span>第三方集成</span>
+          </a>
+          <a href="#storage" class="settings-nav-item">
+            <i class="fa-solid fa-database mr-10"></i>
+            <span>存储管理</span>
+          </a>
+          <a href="#logging" class="settings-nav-item">
+            <i class="fa-solid fa-file-lines mr-10"></i>
+            <span>日志与审计</span>
+          </a>
+          <a href="#backup" class="settings-nav-item">
+            <i class="fa-solid fa-cloud-arrow-up mr-10"></i>
+            <span>备份与恢复</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- 设置内容区 -->
+      <div class="settings-content">
+        <!-- 通用设置 -->
+        <div id="general" class="settings-section active">
+          <h3 class="settings-section-title">通用设置</h3>
+
+          <div class="card mb-20">
+            <div class="card-body">
+              <h4 class="mb-15">基本信息</h4>
+
+              <form class="settings-form">
+                <div class="form-group">
+                  <label>系统名称</label>
+                  <input type="text" class="form-control" value="企业智能知识库应用">
+                </div>
+
+                <div class="form-group">
+                  <label>系统描述</label>
+                  <textarea class="form-control" rows="3">企业级智能知识管理与问答平台，提供强大的知识库管理、智能应用构建和智能问答服务</textarea>
+                </div>
+
+                <div class="form-group">
+                  <label>系统语言</label>
+                  <select class="form-control">
+                    <option selected>简体中文</option>
+                    <option>English</option>
+                    <option>日本語</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>时区设置</label>
+                  <select class="form-control">
+                    <option selected>(GMT+08:00) 北京，香港，上海</option>
+                    <option>(GMT+09:00) 东京，大阪</option>
+                    <option>(GMT+00:00) 伦敦，格林威治</option>
+                    <option>(GMT-05:00) 纽约，多伦多</option>
+                  </select>
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">保存更改</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="card mb-20">
+            <div class="card-body">
+              <h4 class="mb-15">界面设置</h4>
+
+              <form class="settings-form">
+                <div class="form-group">
+                  <label>系统主题</label>
+                  <div class="theme-selector">
+                    <label class="theme-option selected">
+                      <input type="radio" name="theme" checked>
+                      <div class="theme-preview light-theme">
+                        <div class="theme-header"></div>
+                        <div class="theme-body"></div>
+                      </div>
+                      <span>浅色</span>
+                    </label>
+
+                    <label class="theme-option">
+                      <input type="radio" name="theme">
+                      <div class="theme-preview dark-theme">
+                        <div class="theme-header"></div>
+                        <div class="theme-body"></div>
+                      </div>
+                      <span>深色</span>
+                    </label>
+
+                    <label class="theme-option">
+                      <input type="radio" name="theme">
+                      <div class="theme-preview auto-theme">
+                        <div class="theme-header"></div>
+                        <div class="theme-body"></div>
+                      </div>
+                      <span>自动</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>主色调</label>
+                  <div class="color-selector">
+                    <label class="color-option selected">
+                      <input type="radio" name="color" checked>
+                      <span class="color-preview" style="background-color: #2563eb;"></span>
+                      <span>蓝色</span>
+                    </label>
+
+                    <label class="color-option">
+                      <input type="radio" name="color">
+                      <span class="color-preview" style="background-color: #16a34a;"></span>
+                      <span>绿色</span>
+                    </label>
+
+                    <label class="color-option">
+                      <input type="radio" name="color">
+                      <span class="color-preview" style="background-color: #9333ea;"></span>
+                      <span>紫色</span>
+                    </label>
+
+                    <label class="color-option">
+                      <input type="radio" name="color">
+                      <span class="color-preview" style="background-color: #dc2626;"></span>
+                      <span>红色</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>布局密度</label>
+                  <div class="density-selector">
+                    <label class="radio">
+                      <input type="radio" name="density">
+                      <span>紧凑</span>
+                    </label>
+                    <label class="radio">
+                      <input type="radio" name="density" checked>
+                      <span>标准</span>
+                    </label>
+                    <label class="radio">
+                      <input type="radio" name="density">
+                      <span>宽松</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="checkbox">
+                    <input type="checkbox" checked>
+                    <span>显示欢迎页</span>
+                  </label>
+                </div>
+
+                <div class="form-group">
+                  <label class="checkbox">
+                    <input type="checkbox" checked>
+                    <span>显示数据统计</span>
+                  </label>
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">保存更改</button>
+                  <button type="button" class="btn btn-text">恢复默认</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h4 class="mb-15">系统通知</h4>
+
+              <form class="settings-form">
+                <div class="form-group">
+                  <label>通知类型</label>
+
+                  <div class="notification-settings">
+                    <div class="notification-item">
+                      <div>
+                        <h5>知识库更新通知</h5>
+                        <p class="text-secondary">当知识库内容更新时接收通知</p>
+                      </div>
+                      <div class="notification-toggles">
+                        <label class="toggle">
+                          <input type="checkbox" checked>
+                          <span class="toggle-slider"></span>
+                          <span>邮件</span>
+                        </label>
+                        <label class="toggle">
+                          <input type="checkbox" checked>
+                          <span class="toggle-slider"></span>
+                          <span>系统</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="notification-item">
+                      <div>
+                        <h5>应用状态通知</h5>
+                        <p class="text-secondary">当应用部署或状态变更时接收通知</p>
+                      </div>
+                      <div class="notification-toggles">
+                        <label class="toggle">
+                          <input type="checkbox" checked>
+                          <span class="toggle-slider"></span>
+                          <span>邮件</span>
+                        </label>
+                        <label class="toggle">
+                          <input type="checkbox" checked>
+                          <span class="toggle-slider"></span>
+                          <span>系统</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="notification-item">
+                      <div>
+                        <h5>用户活动通知</h5>
+                        <p class="text-secondary">当用户活动需要处理时接收通知</p>
+                      </div>
+                      <div class="notification-toggles">
+                        <label class="toggle">
+                          <input type="checkbox">
+                          <span class="toggle-slider"></span>
+                          <span>邮件</span>
+                        </label>
+                        <label class="toggle">
+                          <input type="checkbox" checked>
+                          <span class="toggle-slider"></span>
+                          <span>系统</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="notification-item">
+                      <div>
+                        <h5>系统维护通知</h5>
+                        <p class="text-secondary">接收关于系统维护和更新的通知</p>
+                      </div>
+                      <div class="notification-toggles">
+                        <label class="toggle">
+                          <input type="checkbox" checked>
+                          <span class="toggle-slider"></span>
+                          <span>邮件</span>
+                        </label>
+                        <label class="toggle">
+                          <input type="checkbox" checked>
+                          <span class="toggle-slider"></span>
+                          <span>系统</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">保存更改</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- 用户管理部分（此处仅提供接口，未显示完整内容） -->
+        <div id="users" class="settings-section">
+          <h3 class="settings-section-title">用户管理</h3>
+          <div class="settings-placeholder">
+            <i class="fa-solid fa-users"></i>
+            <p>点击左侧菜单切换到用户管理面板</p>
+          </div>
+        </div>
+
+        <!-- 角色与权限部分（此处仅提供接口，未显示完整内容） -->
+        <div id="roles" class="settings-section">
+          <h3 class="settings-section-title">角色与权限</h3>
+          <div class="settings-placeholder">
+            <i class="fa-solid fa-user-shield"></i>
+            <p>点击左侧菜单切换到角色与权限管理面板</p>
+          </div>
+        </div>
+
+        <!-- AI模型配置部分（此处仅提供接口，未显示完整内容） -->
+        <div id="ai-models" class="settings-section">
+          <h3 class="settings-section-title">AI模型配置</h3>
+          <div class="settings-placeholder">
+            <i class="fa-solid fa-microchip"></i>
+            <p>点击左侧菜单切换到AI模型配置面板</p>
+          </div>
+        </div>
+
+        <!-- 第三方集成部分（此处仅提供接口，未显示完整内容） -->
+        <div id="integrations" class="settings-section">
+          <h3 class="settings-section-title">第三方集成</h3>
+          <div class="settings-placeholder">
+            <i class="fa-solid fa-plug"></i>
+            <p>点击左侧菜单切换到第三方集成面板</p>
+          </div>
+        </div>
+
+        <!-- 存储管理部分（此处仅提供接口，未显示完整内容） -->
+        <div id="storage" class="settings-section">
+          <h3 class="settings-section-title">存储管理</h3>
+          <div class="settings-placeholder">
+            <i class="fa-solid fa-database"></i>
+            <p>点击左侧菜单切换到存储管理面板</p>
+          </div>
+        </div>
+
+        <!-- 日志与审计部分（此处仅提供接口，未显示完整内容） -->
+        <div id="logging" class="settings-section">
+          <h3 class="settings-section-title">日志与审计</h3>
+          <div class="settings-placeholder">
+            <i class="fa-solid fa-file-lines"></i>
+            <p>点击左侧菜单切换到日志与审计面板</p>
+          </div>
+        </div>
+
+        <!-- 备份与恢复部分（此处仅提供接口，未显示完整内容） -->
+        <div id="backup" class="settings-section">
+          <h3 class="settings-section-title">备份与恢复</h3>
+          <div class="settings-placeholder">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <p>点击左侧菜单切换到备份与恢复面板</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer mt-30">
+      <div class="flex-between">
+        <p>&copy; 2023-2025 企业智能知识库应用. 所有权利保留.</p>
+        <div class="footer-links">
+          <a href="#">关于我们</a>
+          <a href="#">联系我们</a>
+          <a href="#">使用条款</a>
+          <a href="#">隐私政策</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- 引入脚本 -->
+  <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

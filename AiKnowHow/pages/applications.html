@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>应用管理 - 企业智能知识库应用</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body class="layout-full">
+  <!-- 头部导航栏 -->
+  <header class="header">
+    <div class="flex-between w-100">
+      <div class="flex">
+        <a href="../index.html" class="text-primary text-bold text-lg mr-20">
+          <i class="fa-solid fa-database mr-10"></i>
+          企业智能知识库
+        </a>
+
+        <nav class="main-nav">
+          <a href="datasets.html" class="nav-link">
+            <i class="fa-solid fa-layer-group mr-10"></i>知识库
+          </a>
+          <a href="applications.html" class="nav-link active">
+            <i class="fa-solid fa-rocket mr-10"></i>应用管理
+          </a>
+          <a href="chat.html" class="nav-link">
+            <i class="fa-solid fa-comments mr-10"></i>智能问答
+          </a>
+          <a href="settings.html" class="nav-link">
+            <i class="fa-solid fa-gear mr-10"></i>系统设置
+          </a>
+        </nav>
+      </div>
+
+      <div class="flex">
+        <div class="search-box mr-20">
+          <input type="text" class="form-control" placeholder="搜索应用...">
+          <i class="fa-solid fa-search"></i>
+        </div>
+
+        <div class="user-menu">
+          <a href="#" class="btn-text mr-10">
+            <i class="fa-solid fa-bell"></i>
+          </a>
+          <a href="#" class="btn-text mr-10">
+            <i class="fa-solid fa-user-circle"></i>
+            <span>管理员</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="container">
+    <div class="page-header">
+      <div class="flex-between">
+        <div>
+          <h2>应用管理</h2>
+          <p class="text-secondary">创建和管理基于知识库的智能应用</p>
+        </div>
+        <div>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#create-app-modal">
+            <i class="fa-solid fa-plus mr-10"></i>创建应用
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 应用过滤器 -->
+    <div class="filter-bar mb-20">
+      <div class="filter-group">
+        <label>排序:</label>
+        <select class="form-control">
+          <option>最近更新</option>
+          <option>名称 (A-Z)</option>
+          <option>创建日期</option>
+          <option>使用次数</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>状态:</label>
+        <select class="form-control">
+          <option>所有</option>
+          <option>已部署</option>
+          <option>测试中</option>
+          <option>构建中</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>类型:</label>
+        <select class="form-control">
+          <option>所有类型</option>
+          <option>问答应用</option>
+          <option>文档分析</option>
+          <option>流程自动化</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>标签:</label>
+        <div class="tag-selector">
+          <span class="tag">法律 <i class="fa-solid fa-times"></i></span>
+          <input type="text" class="form-control-sm" placeholder="添加标签...">
+        </div>
+      </div>
+    </div>
+
+    <!-- 应用列表 -->
+    <div class="apps-grid">
+      <!-- 应用项目 -->
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon bg-purple-soft">
+            <i class="fa-solid fa-file-contract"></i>
+          </div>
+          <div class="app-badges">
+            <span class="badge badge-success">已部署</span>
+          </div>
+        </div>
+        <h4>合同审查助手</h4>
+        <p>自动分析和提取合同关键条款，识别法律风险并生成审核报告</p>
+        <div class="app-meta">
+          <span><i class="fa-solid fa-database"></i> 法律知识库</span>
+          <span><i class="fa-solid fa-calendar"></i> 2天前</span>
+        </div>
+        <div class="app-stats">
+          <div class="stat">
+            <strong>243</strong>
+            <span>使用次数</span>
+          </div>
+          <div class="stat">
+            <strong>92%</strong>
+            <span>准确率</span>
+          </div>
+        </div>
+        <div class="app-tags">
+          <span class="tag">法律</span>
+          <span class="tag">合同</span>
+          <span class="tag">审核</span>
+        </div>
+        <div class="app-actions">
+          <a href="#" class="btn btn-primary btn-sm">使用应用</a>
+          <div class="action-btns">
+            <a href="#" class="btn-icon" title="应用设置"><i class="fa-solid fa-gear"></i></a>
+            <a href="#" class="btn-icon" title="查看统计"><i class="fa-solid fa-chart-line"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon bg-blue-soft">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <div class="app-badges">
+            <span class="badge badge-success">已部署</span>
+          </div>
+        </div>
+        <h4>客服知识助手</h4>
+        <p>为客服人员提供即时产品、服务和问题解决信息的智能助手</p>
+        <div class="app-meta">
+          <span><i class="fa-solid fa-database"></i> 产品知识库</span>
+          <span><i class="fa-solid fa-calendar"></i> 5天前</span>
+        </div>
+        <div class="app-stats">
+          <div class="stat">
+            <strong>1,456</strong>
+            <span>使用次数</span>
+          </div>
+          <div class="stat">
+            <strong>87%</strong>
+            <span>准确率</span>
+          </div>
+        </div>
+        <div class="app-tags">
+          <span class="tag">客服</span>
+          <span class="tag">产品</span>
+          <span class="tag">问答</span>
+        </div>
+        <div class="app-actions">
+          <a href="#" class="btn btn-primary btn-sm">使用应用</a>
+          <div class="action-btns">
+            <a href="#" class="btn-icon" title="应用设置"><i class="fa-solid fa-gear"></i></a>
+            <a href="#" class="btn-icon" title="查看统计"><i class="fa-solid fa-chart-line"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon bg-green-soft">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div class="app-badges">
+            <span class="badge badge-warning">测试中</span>
+          </div>
+        </div>
+        <h4>数据分析助手</h4>
+        <p>通过自然语言查询分析业务数据，生成统计报告和可视化图表</p>
+        <div class="app-meta">
+          <span><i class="fa-solid fa-database"></i> 业务数据知识库</span>
+          <span><i class="fa-solid fa-calendar"></i> 1周前</span>
+        </div>
+        <div class="app-stats">
+          <div class="stat">
+            <strong>56</strong>
+            <span>使用次数</span>
+          </div>
+          <div class="stat">
+            <strong>76%</strong>
+            <span>准确率</span>
+          </div>
+        </div>
+        <div class="app-tags">
+          <span class="tag">分析</span>
+          <span class="tag">报表</span>
+          <span class="tag">可视化</span>
+        </div>
+        <div class="app-actions">
+          <a href="#" class="btn btn-primary btn-sm">使用应用</a>
+          <div class="action-btns">
+            <a href="#" class="btn-icon" title="应用设置"><i class="fa-solid fa-gear"></i></a>
+            <a href="#" class="btn-icon" title="测试应用"><i class="fa-solid fa-vial"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon bg-info-soft">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+          </div>
+          <div class="app-badges">
+            <span class="badge badge-success">已部署</span>
+          </div>
+        </div>
+        <h4>财务报销助手</h4>
+        <p>自动审核报销申请，提供政策参考和异常检测功能</p>
+        <div class="app-meta">
+          <span><i class="fa-solid fa-database"></i> 财务制度知识库</span>
+          <span><i class="fa-solid fa-calendar"></i> 2周前</span>
+        </div>
+        <div class="app-stats">
+          <div class="stat">
+            <strong>782</strong>
+            <span>使用次数</span>
+          </div>
+          <div class="stat">
+            <strong>95%</strong>
+            <span>准确率</span>
+          </div>
+        </div>
+        <div class="app-tags">
+          <span class="tag">财务</span>
+          <span class="tag">报销</span>
+          <span class="tag">审核</span>
+        </div>
+        <div class="app-actions">
+          <a href="#" class="btn btn-primary btn-sm">使用应用</a>
+          <div class="action-btns">
+            <a href="#" class="btn-icon" title="应用设置"><i class="fa-solid fa-gear"></i></a>
+            <a href="#" class="btn-icon" title="查看统计"><i class="fa-solid fa-chart-line"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon bg-warning-soft">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+          </div>
+          <div class="app-badges">
+            <span class="badge badge-info">构建中</span>
+          </div>
+        </div>
+        <h4>市场研究分析师</h4>
+        <p>分析行业趋势和竞争情报，提供市场研究报告和建议</p>
+        <div class="app-meta">
+          <span><i class="fa-solid fa-database"></i> 市场数据知识库</span>
+          <span><i class="fa-solid fa-calendar"></i> 3天前</span>
+        </div>
+        <div class="app-stats">
+          <div class="stat">
+            <strong>--</strong>
+            <span>使用次数</span>
+          </div>
+          <div class="stat">
+            <strong>--</strong>
+            <span>准确率</span>
+          </div>
+        </div>
+        <div class="app-tags">
+          <span class="tag">市场</span>
+          <span class="tag">研究</span>
+          <span class="tag">分析</span>
+        </div>
+        <div class="app-actions">
+          <a href="#" class="btn btn-warning btn-sm">继续构建</a>
+          <div class="action-btns">
+            <a href="#" class="btn-icon" title="应用设置"><i class="fa-solid fa-gear"></i></a>
+            <a href="#" class="btn-icon" title="预览应用"><i class="fa-solid fa-eye"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-card app-card-new">
+        <div class="app-add-icon">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <h4>创建新应用</h4>
+        <p>选择模板或从头开始创建自定义智能应用</p>
+        <a href="#" class="btn btn-outline" data-toggle="modal" data-target="#create-app-modal">
+          开始创建
+        </a>
+      </div>
+    </div>
+
+    <!-- 创建应用模态框 -->
+    <div id="create-app-modal" class="modal">
+      <div class="modal-content modal-lg">
+        <div class="modal-header">
+          <h3>创建新应用</h3>
+          <button class="close-btn" data-dismiss="modal">
+            <i class="fa-solid fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="tabs">
+            <div class="tab-nav">
+              <button class="tab-btn active" data-tab="template">
+                <i class="fa-solid fa-puzzle-piece mr-5"></i>使用模板
+              </button>
+              <button class="tab-btn" data-tab="custom">
+                <i class="fa-solid fa-code mr-5"></i>自定义应用
+              </button>
+            </div>
+            <div class="tab-content">
+              <div id="template-tab" class="tab-pane active">
+                <h4 class="mb-20">选择应用模板</h4>
+                <div class="template-list">
+                  <div class="template-item selected">
+                    <div class="template-icon bg-blue-soft">
+                      <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <div class="template-info">
+                      <h5>智能问答</h5>
+                      <p>基于知识库的问答应用，支持精确答案和引用文档</p>
+                      <div class="template-features">
+                        <span class="feature"><i class="fa-solid fa-check"></i> 支持文档引用</span>
+                        <span class="feature"><i class="fa-solid fa-check"></i> 历史会话管理</span>
+                        <span class="feature"><i class="fa-solid fa-check"></i> 自定义回答偏好</span>
+                      </div>
+                    </div>
+                    <div class="template-select">
+                      <input type="radio" name="template" checked>
+                    </div>
+                  </div>
+
+                  <div class="template-item">
+                    <div class="template-icon bg-purple-soft">
+                      <i class="fa-solid fa-file-search"></i>
+                    </div>
+                    <div class="template-info">
+                      <h5>文档分析</h5>
+                      <p>自动分析文档内容，提取关键信息和见解</p>
+                      <div class="template-features">
+                        <span class="feature"><i class="fa-solid fa-check"></i> 关键信息提取</span>
+                        <span class="feature"><i class="fa-solid fa-check"></i> 文档摘要生成</span>
+                        <span class="feature"><i class="fa-solid fa-check"></i> 同类文档比较</span>
+                      </div>
+                    </div>
+                    <div class="template-select">
+                      <input type="radio" name="template">
+                    </div>
+                  </div>
+
+                  <div class="template-item">
+                    <div class="template-icon bg-green-soft">
+                      <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="template-info">
+                      <h5>流程助手</h5>
+                      <p>引导用户完成特定业务流程，提供步骤指导</p>
+                      <div class="template-features">
+                        <span class="feature"><i class="fa-solid fa-check"></i> 多步骤引导</span>
+                        <span class="feature"><i class="fa-solid fa-check"></i> 表单生成与验证</span>
+                        <span class="feature"><i class="fa-solid fa-check"></i> 进度保存与恢复</span>
+                      </div>
+                    </div>
+                    <div class="template-select">
+                      <input type="radio" name="template">
+                    </div>
+                  </div>
+                  
+                  <div class="template-item">
+                    <div class="template-icon bg-orange-soft">
+                      <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <div class="template-info">
+                      <h5>数据分析</h5>
+                      <p>通过自然语言查询分析业务数据，生成图表和见解</p>
+                      <div class="template-features">
+                        <span class="feature"><i class="fa-solid fa-check"></i> 自然语言查询</span>
+                        <span class="feature"><i class="fa-solid fa-check"></i> 交互式可视化</span>
+                        <span class="feature"><i class="fa-solid fa-check"></i> 数据导出</span>
+                      </div>
+                    </div>
+                    <div class="template-select">
+                      <input type="radio" name="template">
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="template-preview mt-20">
+                  <h5>模板预览</h5>
+                  <div class="preview-container">
+                    <img src="../images/templates/qa-template-preview.png" alt="智能问答模板预览" class="preview-image">
+                  </div>
+                  <div class="mt-10">
+                    <a href="#" class="btn btn-sm btn-outline">查看演示</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div id="custom-tab" class="tab-pane">
+                <form id="create-app-form">
+                  <div class="form-grid">
+                    <div class="form-group col-span-2">
+                      <label for="app-name">应用名称 <span class="required">*</span></label>
+                      <input type="text" id="app-name" class="form-control" placeholder="输入应用名称" required>
+                      <div class="form-hint">起一个简洁明了的名称，最多30个字符</div>
+                    </div>
+                    
+                    <div class="form-group col-span-2">
+                      <label for="app-description">描述</label>
+                      <textarea id="app-description" class="form-control" rows="3" placeholder="描述这个应用的功能和用途"></textarea>
+                      <div class="form-hint">清晰描述应用的用途和价值，方便用户理解</div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="app-type">应用类型 <span class="required">*</span></label>
+                      <select id="app-type" class="form-control" required>
+                        <option value="">选择类型</option>
+                        <option value="qa">问答应用</option>
+                        <option value="analysis">文档分析</option>
+                        <option value="workflow">流程自动化</option>
+                        <option value="data">数据分析</option>
+                        <option value="custom">自定义类型</option>
+                      </select>
+                      <div class="form-hint">不同类型的应用有不同的功能和界面</div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="app-icon">图标</label>
+                      <div class="icon-selector">
+                        <div class="selected-icon">
+                          <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <div class="icon-options">
+                          <div class="icon-option" data-icon="fa-comments"><i class="fa-solid fa-comments"></i></div>
+                          <div class="icon-option" data-icon="fa-file-search"><i class="fa-solid fa-file-search"></i></div>
+                          <div class="icon-option" data-icon="fa-robot"><i class="fa-solid fa-robot"></i></div>
+                          <div class="icon-option" data-icon="fa-chart-pie"><i class="fa-solid fa-chart-pie"></i></div>
+                          <div class="icon-option" data-icon="fa-headset"><i class="fa-solid fa-headset"></i></div>
+                          <div class="icon-option" data-icon="fa-code"><i class="fa-solid fa-code"></i></div>
+                          <div class="icon-option" data-icon="fa-brain"><i class="fa-solid fa-brain"></i></div>
+                          <div class="icon-option" data-icon="fa-lightbulb"><i class="fa-solid fa-lightbulb"></i></div>
+                        </div>
+                        <input type="hidden" id="app-icon" name="icon" value="fa-comments">
+                      </div>
+                      <div class="form-hint">选择一个能代表应用功能的图标</div>
+                    </div>
+                    
+                    <div class="form-group col-span-2 divider-top">
+                      <label class="section-label">数据源配置</label>
+                    </div>
+                    
+                    <div class="form-group col-span-2">
+                      <label for="dataset-select">选择知识库 <span class="required">*</span></label>
+                      <div class="dataset-selector">
+                        <div class="selected-datasets">
+                          <!-- 这里会显示已选择的知识库 -->
+                        </div>
+                        <select id="dataset-select" class="form-control" required>
+                          <option value="">选择知识库</option>
+                          <option value="product">产品知识库</option>
+                          <option value="legal">法律知识库</option>
+                          <option value="finance">财务制度知识库</option>
+                          <option value="support">客服知识库</option>
+                          <option value="business">业务数据知识库</option>
+                        </select>
+                        <div class="form-hint">可以选择多个知识库作为数据源</div>
+                        <button type="button" class="btn btn-sm btn-outline mt-10">
+                          <i class="fa-solid fa-plus mr-5"></i>添加知识库
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="app-tags">标签</label>
+                      <div class="tag-input-container">
+                        <div class="tag-input-tags">
+                          <!-- 动态添加的标签会显示在这里 -->
+                        </div>
+                        <input type="text" id="app-tags-input" class="form-control-sm" placeholder="输入标签并按回车...">
+                        <input type="hidden" id="app-tags" name="tags" value="">
+                      </div>
+                      <div class="form-hint">添加相关标签，便于分类和搜索</div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="app-color">主题颜色</label>
+                      <div class="color-selector">
+                        <div class="color-option selected" data-color="blue"><span
+                            style="background-color: var(--accent-color)"></span></div>
+                        <div class="color-option" data-color="purple"><span
+                            style="background-color: var(--secondary-color)"></span></div>
+                        <div class="color-option" data-color="green"><span
+                            style="background-color: var(--success-color)"></span></div>
+                        <div class="color-option" data-color="primary"><span
+                            style="background-color: var(--primary-color)"></span></div>
+                        <div class="color-option" data-color="orange"><span
+                            style="background-color: var(--warning-color)"></span></div>
+                        <div class="color-option" data-color="red"><span style="background-color: var(--danger-color)"></span>
+                        </div>
+                        <input type="hidden" id="app-color" name="color" value="blue">
+                      </div>
+                      <div class="form-hint">选择应用的主题颜色</div>
+                    </div>
+                    
+                    <div class="form-group col-span-2 divider-top">
+                      <label class="section-label">访问权限</label>
+                      <div class="permission-options">
+                        <div class="permission-option">
+                          <input type="radio" id="permission-public" name="permission" value="public" checked>
+                          <label for="permission-public">
+                            <i class="fa-solid fa-globe"></i>
+                            <div>
+                              <span class="option-label">公开访问</span>
+                              <span class="option-desc">所有用户可访问</span>
+                            </div>
+                          </label>
+                        </div>
+                        <div class="permission-option">
+                          <input type="radio" id="permission-restricted" name="permission" value="restricted">
+                          <label for="permission-restricted">
+                            <i class="fa-solid fa-users"></i>
+                            <div>
+                              <span class="option-label">特定用户组</span>
+                              <span class="option-desc">仅指定用户组可访问</span>
+                            </div>
+                          </label>
+                        </div>
+                        <div class="permission-option">
+                          <input type="radio" id="permission-private" name="permission" value="private">
+                          <label for="permission-private">
+                            <i class="fa-solid fa-lock"></i>
+                            <div>
+                              <span class="option-label">私密</span>
+                              <span class="option-desc">仅创建者可访问</span>
+                            </div>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-text" data-dismiss="modal">取消</button>
+          <button class="btn btn-primary">下一步</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer mt-30">
+      <div class="flex-between">
+        <p>&copy; 2023-2025 企业智能知识库应用. 所有权利保留.</p>
+        <div class="footer-links">
+          <a href="#">关于我们</a>
+          <a href="#">联系我们</a>
+          <a href="#">使用条款</a>
+          <a href="#">隐私政策</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- 引入脚本 -->
+  <script src="../assets/js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 模态框控制
+      const modalTriggers = document.querySelectorAll('[data-toggle="modal"]');
+      const modalDismissers = document.querySelectorAll('[data-dismiss="modal"]');
+      
+      modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          const modalId = this.getAttribute('data-target');
+          const modal = document.querySelector(modalId);
+          if (modal) modal.classList.add('show');
+        });
+      });
+      
+      modalDismissers.forEach(dismisser => {
+        dismisser.addEventListener('click', function(e) {
+          e.preventDefault();
+          const modal = this.closest('.modal');
+          if (modal) modal.classList.remove('show');
+        });
+      });
+      
+      // 标签页控制
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      
+      tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const tabName = this.getAttribute('data-tab');
+          const tabContainer = this.closest('.tabs');
+          
+          // 更新按钮状态
+          tabContainer.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+          });
+          this.classList.add('active');
+          
+          // 更新内容
+          tabContainer.querySelectorAll('.tab-pane').forEach(pane => {
+            pane.classList.remove('active');
+          });
+          document.getElementById(tabName + '-tab').classList.add('active');
+        });
+      });
+      
+      // 模板选择
+      const templateItems = document.querySelectorAll('.template-item');
+      
+      templateItems.forEach(item => {
+        item.addEventListener('click', function() {
+          templateItems.forEach(el => el.classList.remove('selected'));
+          this.classList.add('selected');
+          this.querySelector('input[type="radio"]').checked = true;
+        });
+      });
+      
+      // 图标选择器
+      const iconOptions = document.querySelectorAll('.icon-option');
+      
+      iconOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          const icon = this.getAttribute('data-icon');
+          const container = this.closest('.icon-selector');
+          
+          container.querySelectorAll('.icon-option').forEach(opt => {
+            opt.classList.remove('selected');
+          });
+          
+          this.classList.add('selected');
+          container.querySelector('.selected-icon i').className = 'fa-solid ' + icon;
+          container.querySelector('input[type="hidden"]').value = icon;
+        });
+      });
+      
+      // 颜色选择器
+      const colorOptions = document.querySelectorAll('.color-option');
+      
+      colorOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          const color = this.getAttribute('data-color');
+          const container = this.closest('.color-selector');
+          
+          container.querySelectorAll('.color-option').forEach(opt => {
+            opt.classList.remove('selected');
+          });
+          
+          this.classList.add('selected');
+          container.querySelector('input[type="hidden"]').value = color;
+        });
+      });
+      
+      // 标签输入
+      const tagInputs = document.querySelectorAll('[id$="-tags-input"]');
+      
+      tagInputs.forEach(input => {
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ',') {
+            e.preventDefault();
+            
+            const value = this.value.trim();
+            if (!value) return;
+            
+            const container = this.closest('.tag-input-container');
+            const tagsContainer = container.querySelector('.tag-input-tags');
+            const hiddenInput = container.querySelector('input[type="hidden"]');
+            
+            // 创建标签元素
+            const tag = document.createElement('span');
+            tag.className = 'tag';
+            tag.innerHTML = value + ' <i class="fa-solid fa-times"></i>';
+            
+            // 添加删除事件
+            tag.querySelector('i').addEventListener('click', function() {
+              tag.remove();
+              updateHiddenTagsInput(container);
+            });
+            
+            tagsContainer.appendChild(tag);
+            this.value = '';
+            
+            updateHiddenTagsInput(container);
+          }
+        });
+      });
+      
+      function updateHiddenTagsInput(container) {
+        const tags = Array.from(container.querySelectorAll('.tag')).map(tag => {
+          return tag.textContent.trim();
+        });
+        
+        container.querySelector('input[type="hidden"]').value = tags.join(',');
+      }
+    });
+  </script>
+</body>
+
+</html>

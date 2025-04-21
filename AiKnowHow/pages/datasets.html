@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>知识库管理 - 企业智能知识库应用</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body class="layout-full">
+  <!-- 头部导航栏 -->
+  <header class="header">
+    <div class="flex-between w-100">
+      <div class="flex">
+        <a href="../index.html" class="text-primary text-bold text-lg mr-20">
+          <i class="fa-solid fa-database mr-10"></i>
+          企业智能知识库
+        </a>
+
+        <nav class="main-nav">
+          <a href="datasets.html" class="nav-link active">
+            <i class="fa-solid fa-layer-group mr-10"></i>知识库
+          </a>
+          <a href="applications.html" class="nav-link">
+            <i class="fa-solid fa-rocket mr-10"></i>应用管理
+          </a>
+          <a href="chat.html" class="nav-link">
+            <i class="fa-solid fa-comments mr-10"></i>智能问答
+          </a>
+          <a href="settings.html" class="nav-link">
+            <i class="fa-solid fa-gear mr-10"></i>系统设置
+          </a>
+        </nav>
+      </div>
+
+      <div class="flex">
+        <div class="search-box mr-20">
+          <input type="text" class="form-control" placeholder="搜索知识库...">
+          <i class="fa-solid fa-search"></i>
+        </div>
+
+        <div class="user-menu">
+          <a href="#" class="btn-text mr-10">
+            <i class="fa-solid fa-bell"></i>
+          </a>
+          <a href="#" class="btn-text mr-10">
+            <i class="fa-solid fa-user-circle"></i>
+            <span>管理员</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="container">
+    <div class="page-header">
+      <div class="flex-between">
+        <div>
+          <h2>知识库管理</h2>
+          <p class="text-secondary">创建、管理和组织企业知识库资源</p>
+        </div>
+        <div>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#create-dataset-modal">
+            <i class="fa-solid fa-plus mr-10"></i>创建知识库
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 知识库过滤器 -->
+    <div class="filter-bar mb-20">
+      <div class="filter-group">
+        <label>排序:</label>
+        <select class="form-control">
+          <option>最近更新</option>
+          <option>名称 (A-Z)</option>
+          <option>创建日期</option>
+          <option>文档数量</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>状态:</label>
+        <select class="form-control">
+          <option>所有</option>
+          <option>已索引</option>
+          <option>索引中</option>
+          <option>未索引</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>类型:</label>
+        <select class="form-control">
+          <option>所有类型</option>
+          <option>文档知识库</option>
+          <option>结构化数据</option>
+          <option>API接口</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>标签:</label>
+        <div class="tag-selector">
+          <span class="tag">产品 <i class="fa-solid fa-times"></i></span>
+          <input type="text" class="form-control-sm" placeholder="添加标签...">
+        </div>
+      </div>
+    </div>
+
+    <!-- 知识库列表 -->
+    <div class="datasets-grid">
+      <!-- 知识库项目 -->
+      <div class="dataset-card">
+        <div class="dataset-header">
+          <div class="dataset-icon bg-primary-soft">
+            <i class="fa-solid fa-book"></i>
+          </div>
+          <div class="dataset-badges">
+            <span class="badge badge-success">已索引</span>
+          </div>
+        </div>
+        <h4>产品知识库</h4>
+        <p>包含产品规格、手册、指南和常见问题解答的综合知识库</p>
+        <div class="dataset-stats">
+          <div class="stat">
+            <i class="fa-solid fa-file"></i>
+            <span>325 文档</span>
+          </div>
+          <div class="stat">
+            <i class="fa-solid fa-calendar"></i>
+            <span>2天前更新</span>
+          </div>
+        </div>
+        <div class="dataset-tags">
+          <span class="tag">产品</span>
+          <span class="tag">技术</span>
+          <span class="tag">规格</span>
+        </div>
+        <div class="dataset-actions">
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-eye"></i></a>
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-file-import"></i></a>
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-gear"></i></a>
+        </div>
+      </div>
+
+      <div class="dataset-card">
+        <div class="dataset-header">
+          <div class="dataset-icon bg-purple-soft">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <div class="dataset-badges">
+            <span class="badge badge-success">已索引</span>
+          </div>
+        </div>
+        <h4>法律知识库</h4>
+        <p>合同模板、法律指南、规章制度和合规要求的专业法律资源库</p>
+        <div class="dataset-stats">
+          <div class="stat">
+            <i class="fa-solid fa-file"></i>
+            <span>142 文档</span>
+          </div>
+          <div class="stat">
+            <i class="fa-solid fa-calendar"></i>
+            <span>3天前更新</span>
+          </div>
+        </div>
+        <div class="dataset-tags">
+          <span class="tag">法律</span>
+          <span class="tag">合规</span>
+          <span class="tag">合同</span>
+        </div>
+        <div class="dataset-actions">
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-eye"></i></a>
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-file-import"></i></a>
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-gear"></i></a>
+        </div>
+      </div>
+
+      <div class="dataset-card">
+        <div class="dataset-header">
+          <div class="dataset-icon bg-green-soft">
+            <i class="fa-solid fa-file-invoice"></i>
+          </div>
+          <div class="dataset-badges">
+            <span class="badge badge-info">索引中</span>
+          </div>
+        </div>
+        <h4>财务制度知识库</h4>
+        <p>财务政策、报销规定、预算管理和财务流程的完整知识库</p>
+        <div class="dataset-stats">
+          <div class="stat">
+            <i class="fa-solid fa-file"></i>
+            <span>78 文档</span>
+          </div>
+          <div class="stat">
+            <i class="fa-solid fa-calendar"></i>
+            <span>1天前更新</span>
+          </div>
+        </div>
+        <div class="dataset-tags">
+          <span class="tag">财务</span>
+          <span class="tag">规章制度</span>
+        </div>
+        <div class="dataset-actions">
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-eye"></i></a>
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-file-import"></i></a>
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-gear"></i></a>
+        </div>
+      </div>
+
+      <div class="dataset-card">
+        <div class="dataset-header">
+          <div class="dataset-icon bg-blue-soft">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <div class="dataset-badges">
+            <span class="badge badge-success">已索引</span>
+          </div>
+        </div>
+        <h4>客服知识库</h4>
+        <p>客户问题解决方案、常见问题和标准响应的综合知识资源</p>
+        <div class="dataset-stats">
+          <div class="stat">
+            <i class="fa-solid fa-file"></i>
+            <span>245 文档</span>
+          </div>
+          <div class="stat">
+            <i class="fa-solid fa-calendar"></i>
+            <span>5天前更新</span>
+          </div>
+        </div>
+        <div class="dataset-tags">
+          <span class="tag">客服</span>
+          <span class="tag">FAQ</span>
+          <span class="tag">问题解决</span>
+        </div>
+        <div class="dataset-actions">
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-eye"></i></a>
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-file-import"></i></a>
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-gear"></i></a>
+        </div>
+      </div>
+
+      <div class="dataset-card">
+        <div class="dataset-header">
+          <div class="dataset-icon bg-warning-soft">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div class="dataset-badges">
+            <span class="badge badge-success">已索引</span>
+          </div>
+        </div>
+        <h4>业务数据知识库</h4>
+        <p>业务报表、市场分析、销售数据和业绩指标的结构化数据知识库</p>
+        <div class="dataset-stats">
+          <div class="stat">
+            <i class="fa-solid fa-file"></i>
+            <span>127 文档</span>
+          </div>
+          <div class="stat">
+            <i class="fa-solid fa-calendar"></i>
+            <span>1周前更新</span>
+          </div>
+        </div>
+        <div class="dataset-tags">
+          <span class="tag">业务数据</span>
+          <span class="tag">分析</span>
+          <span class="tag">报表</span>
+        </div>
+        <div class="dataset-actions">
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-eye"></i></a>
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-file-import"></i></a>
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-gear"></i></a>
+        </div>
+      </div>
+
+      <div class="dataset-card">
+        <div class="dataset-header">
+          <div class="dataset-icon bg-info-soft">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="dataset-badges">
+            <span class="badge badge-warning">未索引</span>
+          </div>
+        </div>
+        <h4>培训知识库</h4>
+        <p>企业培训材料、学习资源和能力发展计划的集中知识库</p>
+        <div class="dataset-stats">
+          <div class="stat">
+            <i class="fa-solid fa-file"></i>
+            <span>0 文档</span>
+          </div>
+          <div class="stat">
+            <i class="fa-solid fa-calendar"></i>
+            <span>刚刚创建</span>
+          </div>
+        </div>
+        <div class="dataset-tags">
+          <span class="tag">培训</span>
+          <span class="tag">学习</span>
+        </div>
+        <div class="dataset-actions">
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-eye"></i></a>
+          <a href="#" class="btn btn-primary-outline"><i class="fa-solid fa-file-import mr-5"></i>导入文档</a>
+          <a href="#" class="btn btn-text"><i class="fa-solid fa-gear"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 创建知识库模态框 -->
+    <div id="create-dataset-modal" class="modal">
+      <div class="modal-content modal-lg">
+        <div class="modal-header">
+          <h3>创建新知识库</h3>
+          <button class="close-btn" data-dismiss="modal">
+            <i class="fa-solid fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="create-dataset-form">
+            <div class="form-grid">
+              <div class="form-group col-span-2">
+                <label for="dataset-name">知识库名称 <span class="required">*</span></label>
+                <input type="text" id="dataset-name" name="name" class="form-control" placeholder="输入知识库名称" required>
+              </div>
+
+              <div class="form-group col-span-2">
+                <label for="dataset-description">描述</label>
+                <textarea id="dataset-description" name="description" class="form-control" rows="3"
+                  placeholder="输入知识库描述"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="dataset-type">类型 <span class="required">*</span></label>
+                <select id="dataset-type" name="type" class="form-control" required>
+                  <option value="">选择类型</option>
+                  <option value="document">文档知识库</option>
+                  <option value="structured">结构化数据</option>
+                  <option value="api">API接口</option>
+                  <option value="custom">自定义</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="dataset-icon">图标</label>
+                <div class="icon-selector">
+                  <div class="selected-icon">
+                    <i class="fa-solid fa-book"></i>
+                  </div>
+                  <div class="icon-options">
+                    <div class="icon-option" data-icon="fa-book"><i class="fa-solid fa-book"></i></div>
+                    <div class="icon-option" data-icon="fa-file-lines"><i class="fa-solid fa-file-lines"></i></div>
+                    <div class="icon-option" data-icon="fa-database"><i class="fa-solid fa-database"></i></div>
+                    <div class="icon-option" data-icon="fa-code"><i class="fa-solid fa-code"></i></div>
+                    <div class="icon-option" data-icon="fa-folder"><i class="fa-solid fa-folder"></i></div>
+                    <div class="icon-option" data-icon="fa-chart-pie"><i class="fa-solid fa-chart-pie"></i></div>
+                  </div>
+                  <input type="hidden" id="dataset-icon" name="icon" value="fa-book">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="dataset-tags">标签</label>
+                <div class="tag-input-container">
+                  <div class="tag-input-tags">
+                    <!-- 动态添加的标签会显示在这里 -->
+                  </div>
+                  <input type="text" id="dataset-tags-input" class="form-control-sm" placeholder="输入标签并按回车...">
+                  <input type="hidden" id="dataset-tags" name="tags" value="">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="dataset-color">颜色</label>
+                <div class="color-selector">
+                  <div class="color-option selected" data-color="primary"><span
+                      style="background-color: var(--primary-color)"></span></div>
+                  <div class="color-option" data-color="purple"><span
+                      style="background-color: var(--secondary-color)"></span></div>
+                  <div class="color-option" data-color="green"><span
+                      style="background-color: var(--success-color)"></span></div>
+                  <div class="color-option" data-color="blue"><span
+                      style="background-color: var(--accent-color)"></span></div>
+                  <div class="color-option" data-color="orange"><span
+                      style="background-color: var(--warning-color)"></span></div>
+                  <div class="color-option" data-color="red"><span style="background-color: var(--danger-color)"></span>
+                  </div>
+                  <input type="hidden" id="dataset-color" name="color" value="primary">
+                </div>
+              </div>
+
+              <div class="form-group col-span-2 divider-top">
+                <label>数据来源选择</label>
+                <div class="source-type-toggle">
+                  <button type="button" class="source-type-btn active" data-source="upload">文件上传</button>
+                  <button type="button" class="source-type-btn" data-source="url">网址导入</button>
+                  <button type="button" class="source-type-btn" data-source="api">API接入</button>
+                </div>
+              </div>
+
+              <div class="form-group col-span-2 source-option" id="source-upload">
+                <div class="file-upload-area">
+                  <i class="fa-solid fa-cloud-upload-alt"></i>
+                  <p>拖放文件到此处或 <span class="upload-btn">选择文件</span></p>
+                  <p class="upload-hint">支持 .pdf, .docx, .txt, .md, .csv, .json 等格式</p>
+                  <input type="file" id="file-upload" multiple class="hidden">
+                </div>
+                <div class="uploaded-files">
+                  <!-- 上传的文件将显示在此处 -->
+                </div>
+              </div>
+
+              <div class="form-group col-span-2 source-option hidden" id="source-url">
+                <label for="source-url-input">输入网址</label>
+                <input type="url" id="source-url-input" class="form-control" placeholder="https://">
+                <p class="hint">支持网站内容抓取，系统将自动提取相关内容</p>
+                <button type="button" class="btn btn-outline-primary mt-10">添加URL</button>
+              </div>
+
+              <div class="form-group col-span-2 source-option hidden" id="source-api">
+                <label for="source-api-input">API接口</label>
+                <input type="url" id="source-api-input" class="form-control" placeholder="https://api.example.com/data">
+                <div class="form-row mt-10">
+                  <div class="form-group flex-1">
+                    <label for="api-method">请求方法</label>
+                    <select id="api-method" class="form-control">
+                      <option>GET</option>
+                      <option>POST</option>
+                      <option>PUT</option>
+                    </select>
+                  </div>
+                  <div class="form-group flex-1">
+                    <label for="api-format">数据格式</label>
+                    <select id="api-format" class="form-control">
+                      <option>JSON</option>
+                      <option>XML</option>
+                      <option>CSV</option>
+                    </select>
+                  </div>
+                </div>
+                <label for="api-headers">请求头</label>
+                <textarea id="api-headers" class="form-control" rows="2" placeholder="Content-Type: application/json
+Authorization: Bearer token"></textarea>
+                <button type="button" class="btn btn-outline-primary mt-10">验证接口</button>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-text" data-dismiss="modal">取消</button>
+              <button type="submit" class="btn btn-primary">创建知识库</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer mt-30">
+      <div class="flex-between">
+        <p>&copy; 2023-2025 企业智能知识库应用. 所有权利保留.</p>
+        <div class="footer-links">
+          <a href="#">关于我们</a>
+          <a href="#">联系我们</a>
+          <a href="#">使用条款</a>
+          <a href="#">隐私政策</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- 引入脚本 -->
+  <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

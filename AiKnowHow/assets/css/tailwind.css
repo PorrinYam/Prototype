@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 自定义基础样式 */
+@layer base {
+  body {
+    @apply text-neutral-800 bg-neutral-50;
+  }
+  h1 {
+    @apply text-2xl font-bold;
+  }
+  h2 {
+    @apply text-xl font-bold;
+  }
+  h3 {
+    @apply text-lg font-semibold;
+  }
+}
+
+/* 自定义组件样式 */
+@layer components {
+  /* 按钮样式 */
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-150;
+  }
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 shadow-sm;
+  }
+  .btn-outline-primary {
+    @apply border border-primary-500 text-primary-600 hover:bg-primary-50 focus:ring-primary-500;
+  }
+  .btn-secondary {
+    @apply bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500 shadow-sm;
+  }
+  .btn-success {
+    @apply bg-success-600 text-white hover:bg-success-700 focus:ring-success-500 shadow-sm;
+  }
+  .btn-warning {
+    @apply bg-warning-500 text-white hover:bg-warning-600 focus:ring-warning-500 shadow-sm;
+  }
+  .btn-danger {
+    @apply bg-danger-600 text-white hover:bg-danger-700 focus:ring-danger-500 shadow-sm;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+  .btn-lg {
+    @apply px-5 py-2.5 text-base;
+  }
+  .btn-icon {
+    @apply p-2 rounded-md text-neutral-400 hover:text-neutral-700 hover:bg-neutral-100 focus:ring-primary-500;
+  }
+  .btn-text {
+    @apply text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 rounded-md px-3 py-2;
+  }
+
+  /* 卡片样式 */
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden border border-neutral-200 transition-all duration-300 hover:shadow-lg;
+  }
+  .card-header {
+    @apply p-6 flex items-start justify-between;
+  }
+  .card-body {
+    @apply p-6;
+  }
+  .card-footer {
+    @apply border-t border-neutral-200 px-6 py-4 bg-neutral-50;
+  }
+
+  /* 表单样式 */
+  .form-control {
+    @apply block w-full rounded-md border-neutral-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm;
+  }
+  .form-label {
+    @apply block text-sm font-medium text-neutral-700 mb-1;
+  }
+  .form-hint {
+    @apply mt-1 text-sm text-neutral-500;
+  }
+  .form-group {
+    @apply mb-4;
+  }
+  
+  /* 导航样式 */
+  .nav-link {
+    @apply px-3 py-2 text-sm font-medium text-neutral-500 hover:text-neutral-900 rounded-md transition-colors duration-150;
+  }
+  .nav-link.active {
+    @apply text-primary-700 bg-primary-50;
+  }
+  
+  /* 标签样式 */
+  .tag {
+    @apply inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-neutral-100 text-neutral-800;
+  }
+  
+  /* 徽章样式 */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-success {
+    @apply bg-success-100 text-success-800;
+  }
+  .badge-warning {
+    @apply bg-warning-100 text-warning-800;
+  }
+  .badge-info {
+    @apply bg-primary-100 text-primary-800;
+  }
+  .badge-danger {
+    @apply bg-danger-100 text-danger-800;
+  }
+  
+  /* 模态框样式 */
+  .modal {
+    @apply fixed inset-0 z-50 overflow-y-auto hidden;
+  }
+  .modal-backdrop {
+    @apply fixed inset-0 bg-neutral-900 bg-opacity-75 transition-opacity;
+  }
+  .modal-content {
+    @apply relative bg-white rounded-xl shadow-xl overflow-hidden max-w-4xl mx-auto my-8 max-h-[90vh] flex flex-col;
+  }
+  .modal-header {
+    @apply px-6 py-4 border-b border-neutral-200 flex items-center justify-between;
+  }
+  .modal-body {
+    @apply p-6 overflow-y-auto;
+  }
+  .modal-footer {
+    @apply px-6 py-4 border-t border-neutral-200 bg-neutral-50 flex justify-end space-x-3;
+  }
+  
+  /* 标签页样式 */
+  .tab-nav {
+    @apply border-b border-neutral-200 flex space-x-8;
+  }
+  .tab-btn {
+    @apply py-4 px-1 border-b-2 font-medium text-sm whitespace-nowrap flex items-center;
+  }
+  .tab-btn.active {
+    @apply border-primary-500 text-primary-600;
+  }
+  .tab-btn:not(.active) {
+    @apply border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300;
+  }
+  .tab-content {
+    @apply py-4;
+  }
+  .tab-pane {
+    @apply hidden;
+  }
+  .tab-pane.active {
+    @apply block;
+  }
+}
+
+/* 自定义工具类 */
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+  .text-truncate {
+    @apply overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+} 

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>企业智能知识库应用 - 首页</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="layout-full">
+  <!-- 头部导航栏 -->
+  <header class="header">
+    <div class="flex-between w-100">
+      <div class="flex">
+        <a href="index.html" class="text-primary text-bold text-lg mr-20">
+          <i class="fa-solid fa-database mr-10"></i>
+          企业智能知识库
+        </a>
+        
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        
+        <nav class="main-nav">
+          <a href="pages/datasets.html" class="nav-link">
+            <i class="fa-solid fa-layer-group mr-10"></i>知识库
+          </a>
+          <a href="pages/applications.html" class="nav-link">
+            <i class="fa-solid fa-rocket mr-10"></i>应用管理
+          </a>
+          <a href="pages/chat.html" class="nav-link">
+            <i class="fa-solid fa-comments mr-10"></i>智能问答
+          </a>
+          <a href="pages/settings.html" class="nav-link">
+            <i class="fa-solid fa-gear mr-10"></i>系统设置
+          </a>
+        </nav>
+      </div>
+      
+      <div class="flex">
+        <div class="search-box mr-20">
+          <input type="text" class="form-control" placeholder="搜索知识库、文档或应用...">
+          <i class="fa-solid fa-search"></i>
+        </div>
+        
+        <div class="user-menu">
+          <a href="#" class="btn-text mr-10">
+            <i class="fa-solid fa-bell"></i>
+          </a>
+          <a href="#" class="btn-text mr-10">
+            <i class="fa-solid fa-user-circle"></i>
+            <span>管理员</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="container">
+    <div class="section-header mt-20 mb-20">
+      <h2>企业智能知识库应用</h2>
+      <p class="text-secondary">企业级智能知识管理与问答平台，提供强大的知识库管理、智能应用构建和智能问答服务</p>
+    </div>
+
+    <!-- 核心数据卡片 -->
+    <div class="stats-container mb-30">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon bg-primary-soft">
+            <i class="fa-solid fa-database"></i>
+          </div>
+          <div class="stat-content">
+            <h3>145</h3>
+            <p>知识库总数</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon bg-success-soft">
+            <i class="fa-solid fa-file-lines"></i>
+          </div>
+          <div class="stat-content">
+            <h3>2,458</h3>
+            <p>文档总数</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon bg-info-soft">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div class="stat-content">
+            <h3>125</h3>
+            <p>活跃用户</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon bg-warning-soft">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <div class="stat-content">
+            <h3>15,250</h3>
+            <p>对话总量</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 今日活跃度 -->
+    <div class="section mb-30">
+      <h3 class="section-title mb-20">今日活跃度</h3>
+      <div class="card">
+        <div class="card-body">
+          <div class="activity-stats">
+            <div class="activity-item">
+              <div class="activity-icon bg-primary">
+                <i class="fa-solid fa-search"></i>
+              </div>
+              <div class="activity-info">
+                <h4>知识查询</h4>
+                <p>总计：<strong>241</strong> 次</p>
+              </div>
+              <div class="activity-trend">
+                <span class="badge badge-success">+12%</span>
+              </div>
+            </div>
+            
+            <div class="activity-item">
+              <div class="activity-icon bg-success">
+                <i class="fa-solid fa-upload"></i>
+              </div>
+              <div class="activity-info">
+                <h4>文档导入</h4>
+                <p>总计：<strong>25</strong> 份</p>
+              </div>
+              <div class="activity-trend">
+                <span class="badge badge-success">+8%</span>
+              </div>
+            </div>
+            
+            <div class="activity-item">
+              <div class="activity-icon bg-warning">
+                <i class="fa-solid fa-users"></i>
+              </div>
+              <div class="activity-info">
+                <h4>新增用户</h4>
+                <p>总计：<strong>8</strong> 人</p>
+              </div>
+              <div class="activity-trend">
+                <span class="badge badge-danger">-3%</span>
+              </div>
+            </div>
+            
+            <div class="activity-item">
+              <div class="activity-icon bg-info">
+                <i class="fa-solid fa-rocket"></i>
+              </div>
+              <div class="activity-info">
+                <h4>应用调用</h4>
+                <p>总计：<strong>156</strong> 次</p>
+              </div>
+              <div class="activity-trend">
+                <span class="badge badge-success">+24%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能区块 -->
+    <div class="section mb-30">
+      <h3 class="section-title mb-20">主要功能</h3>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <h4>知识库管理</h4>
+          <p>创建、管理和组织企业知识库，支持多种数据来源和格式</p>
+          <a href="pages/datasets.html" class="btn btn-outline">管理知识库</a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-solid fa-file-import"></i>
+          </div>
+          <h4>文档处理</h4>
+          <p>上传、处理和索引文档，自动提取结构化内容与知识点</p>
+          <a href="pages/documents.html" class="btn btn-outline">管理文档</a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-solid fa-rocket"></i>
+          </div>
+          <h4>智能应用构建</h4>
+          <p>通过可视化界面创建定制化智能应用，无需编程技能</p>
+          <a href="pages/applications.html" class="btn btn-outline">创建应用</a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <h4>智能问答</h4>
+          <p>基于企业知识库的智能问答系统，支持多轮对话和复杂查询</p>
+          <a href="pages/chat.html" class="btn btn-outline">开始问答</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 知识库使用情况 -->
+    <div class="section mb-30">
+      <h3 class="section-title mb-20">知识库使用情况</h3>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-actions">
+            <div class="dropdown">
+              <button class="btn btn-text dropdown-toggle">
+                本周
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="dataset-usage">
+            <div class="dataset-item">
+              <div class="dataset-info">
+                <h4>产品知识库</h4>
+                <p>包含公司产品的基本信息、规格参数、使用说明和常见问题</p>
+              </div>
+              <div class="dataset-stats">
+                <div class="dataset-stat">
+                  <i class="fa-solid fa-file-alt"></i>
+                  <span>156文档</span>
+                </div>
+                <div class="dataset-stat">
+                  <i class="fa-solid fa-search"></i>
+                  <span>1,245次查询</span>
+                </div>
+              </div>
+              <div class="dataset-progress">
+                <div class="progress">
+                  <div class="progress-bar bg-primary" style="width: 80%;"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="dataset-item">
+              <div class="dataset-info">
+                <h4>技术文档库</h4>
+                <p>包含技术文档、API参考、代码示例和开发者指南</p>
+              </div>
+              <div class="dataset-stats">
+                <div class="dataset-stat">
+                  <i class="fa-solid fa-file-alt"></i>
+                  <span>98文档</span>
+                </div>
+                <div class="dataset-stat">
+                  <i class="fa-solid fa-search"></i>
+                  <span>864次查询</span>
+                </div>
+              </div>
+              <div class="dataset-progress">
+                <div class="progress">
+                  <div class="progress-bar bg-info" style="width: 65%;"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="dataset-item">
+              <div class="dataset-info">
+                <h4>企业知识库</h4>
+                <p>包含企业政策、流程、规章制度和内部公告</p>
+              </div>
+              <div class="dataset-stats">
+                <div class="dataset-stat">
+                  <i class="fa-solid fa-file-alt"></i>
+                  <span>75文档</span>
+                </div>
+                <div class="dataset-stat">
+                  <i class="fa-solid fa-search"></i>
+                  <span>425次查询</span>
+                </div>
+              </div>
+              <div class="dataset-progress">
+                <div class="progress">
+                  <div class="progress-bar bg-success" style="width: 45%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="pages/datasets.html" class="btn btn-text">查看所有知识库</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 最新应用 -->
+    <div class="section mb-30">
+      <div class="flex-between mb-20">
+        <h3 class="section-title">最新应用</h3>
+        <a href="pages/applications.html" class="btn btn-text">查看全部 <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="apps-grid">
+        <div class="app-card">
+          <div class="app-header">
+            <div class="app-icon bg-purple-soft">
+              <i class="fa-solid fa-file-contract"></i>
+            </div>
+            <div class="app-badges">
+              <span class="badge badge-success">已部署</span>
+            </div>
+          </div>
+          <h4>合同审查助手</h4>
+          <p>自动分析和提取合同关键条款，识别法律风险并生成审核报告</p>
+          <div class="app-meta">
+            <span><i class="fa-solid fa-database"></i> 法律知识库</span>
+            <span><i class="fa-solid fa-calendar"></i> 2天前</span>
+          </div>
+          <div class="app-actions">
+            <a href="#" class="btn btn-primary">使用应用</a>
+            <a href="#" class="btn btn-icon"><i class="fa-solid fa-gear"></i></a>
+          </div>
+        </div>
+        
+        <div class="app-card">
+          <div class="app-header">
+            <div class="app-icon bg-blue-soft">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <div class="app-badges">
+              <span class="badge badge-success">已部署</span>
+            </div>
+          </div>
+          <h4>客服知识助手</h4>
+          <p>为客服人员提供即时产品、服务和问题解决信息的智能助手</p>
+          <div class="app-meta">
+            <span><i class="fa-solid fa-database"></i> 产品知识库</span>
+            <span><i class="fa-solid fa-calendar"></i> 5天前</span>
+          </div>
+          <div class="app-actions">
+            <a href="#" class="btn btn-primary">使用应用</a>
+            <a href="#" class="btn btn-icon"><i class="fa-solid fa-gear"></i></a>
+          </div>
+        </div>
+        
+        <div class="app-card">
+          <div class="app-header">
+            <div class="app-icon bg-green-soft">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="app-badges">
+              <span class="badge badge-warning">测试中</span>
+            </div>
+          </div>
+          <h4>数据分析助手</h4>
+          <p>通过自然语言查询分析业务数据，生成统计报告和可视化图表</p>
+          <div class="app-meta">
+            <span><i class="fa-solid fa-database"></i> 业务数据知识库</span>
+            <span><i class="fa-solid fa-calendar"></i> 1周前</span>
+          </div>
+          <div class="app-actions">
+            <a href="#" class="btn btn-primary">使用应用</a>
+            <a href="#" class="btn btn-icon"><i class="fa-solid fa-gear"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 最近活动 -->
+    <div class="section mb-30">
+      <h3 class="section-title mb-20">最近活动</h3>
+      <div class="card">
+        <div class="card-body">
+          <div class="activity-timeline">
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="timeline-time">今天 10:40</span>
+                  <span class="timeline-author">张三</span>
+                </div>
+                <div class="timeline-body">
+                  <p>创建了产品知识库的新文档《产品使用手册V3.0》</p>
+                </div>
+                <div class="timeline-footer">
+                  <span class="badge badge-primary">文档</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="timeline-time">昨天 16:35</span>
+                  <span class="timeline-author">李四</span>
+                </div>
+                <div class="timeline-body">
+                  <p>更新了"客户支持流程"应用的配置</p>
+                </div>
+                <div class="timeline-footer">
+                  <span class="badge badge-success">应用</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="timeline-time">昨天 14:20</span>
+                  <span class="timeline-author">王五</span>
+                </div>
+                <div class="timeline-body">
+                  <p>导入了75份新的技术文档到技术知识库</p>
+                </div>
+                <div class="timeline-footer">
+                  <span class="badge badge-info">导入</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="timeline-time">前天 09:15</span>
+                  <span class="timeline-author">赵六</span>
+                </div>
+                <div class="timeline-body">
+                  <p>创建了新的智能应用"销售数据分析助手"</p>
+                </div>
+                <div class="timeline-footer">
+                  <span class="badge badge-warning">应用</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-text">查看所有活动</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 资源使用情况 -->
+    <div class="section mb-30">
+      <h3 class="section-title mb-20">资源使用情况</h3>
+      <div class="card">
+        <div class="card-body">
+          <div class="usage-stats">
+            <div class="usage-item">
+              <div class="usage-info">
+                <h4>知识库存储</h4>
+                <div class="usage-progress">
+                  <div class="progress">
+                    <div class="progress-bar" style="width: 68%;"></div>
+                  </div>
+                  <span>68% (34.5GB / 50GB)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="usage-item">
+              <div class="usage-info">
+                <h4>API调用次数</h4>
+                <div class="usage-progress">
+                  <div class="progress">
+                    <div class="progress-bar" style="width: 42%;"></div>
+                  </div>
+                  <span>42% (8,400 / 20,000)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="usage-item">
+              <div class="usage-info">
+                <h4>索引处理能力</h4>
+                <div class="usage-progress">
+                  <div class="progress">
+                    <div class="progress-bar" style="width: 25%;"></div>
+                  </div>
+                  <span>25% (250 / 1,000)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="usage-item">
+              <div class="usage-info">
+                <h4>图片处理额度</h4>
+                <div class="usage-progress">
+                  <div class="progress">
+                    <div class="progress-bar" style="width: 78%;"></div>
+                  </div>
+                  <span>78% (780 / 1,000)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-text">查看详情</a>
+          <a href="#" class="btn btn-text">升级资源</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 页脚 -->
+    <footer class="footer mt-30">
+      <div class="flex-between">
+        <p>&copy; 2023-2025 企业智能知识库应用. 所有权利保留.</p>
+        <div class="footer-links">
+          <a href="#">关于我们</a>
+          <a href="#">联系我们</a>
+          <a href="#">使用条款</a>
+          <a href="#">隐私政策</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- JavaScript文件 -->
+  <script src="js/script.js"></script>
+</body>
+</html>

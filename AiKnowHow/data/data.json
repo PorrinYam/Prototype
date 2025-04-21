@@ -1,0 +1,237 @@
+{
+  "datasets": [
+    {
+      "id": "ds001",
+      "name": "产品知识库",
+      "desc": "包含公司产品手册、规格说明和常见问题解答",
+      "type": "0",
+      "document_count": 86,
+      "char_length": 1250000,
+      "application_mapping_count": 3,
+      "username": "张经理",
+      "create_time": "2025-01-15T10:23:45",
+      "update_time": "2025-03-02T14:32:10"
+    },
+    {
+      "id": "ds002",
+      "name": "技术文档库",
+      "desc": "技术架构、设计规范和API文档",
+      "type": "0",
+      "document_count": 120,
+      "char_length": 1850000,
+      "application_mapping_count": 5,
+      "username": "李工程师",
+      "create_time": "2025-01-20T09:15:30",
+      "update_time": "2025-03-01T11:45:22"
+    },
+    {
+      "id": "ds003",
+      "name": "市场营销资料",
+      "desc": "营销策略、市场分析和品牌指南",
+      "type": "0",
+      "document_count": 52,
+      "char_length": 780000,
+      "application_mapping_count": 2,
+      "username": "王经理",
+      "create_time": "2025-02-05T16:08:12",
+      "update_time": "2025-02-28T15:20:45"
+    },
+    {
+      "id": "ds004",
+      "name": "公司官网内容",
+      "desc": "公司网站所有页面的内容抓取与同步",
+      "type": "1",
+      "document_count": 32,
+      "char_length": 450000,
+      "application_mapping_count": 1,
+      "username": "张经理",
+      "create_time": "2025-02-10T14:30:00",
+      "update_time": "2025-03-04T09:10:35"
+    },
+    {
+      "id": "ds005",
+      "name": "培训材料",
+      "desc": "员工培训和客户培训资料",
+      "type": "0",
+      "document_count": 68,
+      "char_length": 1020000,
+      "application_mapping_count": 2,
+      "username": "刘主管",
+      "create_time": "2025-01-25T11:22:33",
+      "update_time": "2025-02-25T16:40:18"
+    },
+    {
+      "id": "ds006",
+      "name": "行业研究",
+      "desc": "竞争对手分析和行业发展趋势报告",
+      "type": "0",
+      "document_count": 28,
+      "char_length": 620000,
+      "application_mapping_count": 1,
+      "username": "赵分析师",
+      "create_time": "2025-02-12T15:45:22",
+      "update_time": "2025-03-01T10:12:05"
+    }
+  ],
+  "applications": [
+    {
+      "id": "app001",
+      "name": "产品咨询助手",
+      "desc": "回答客户关于公司产品的各类问题",
+      "type": "0",
+      "icon": "",
+      "username": "张经理",
+      "dataset_mapping_count": 2,
+      "create_time": "2025-01-18T14:22:36",
+      "update_time": "2025-03-01T09:30:45"
+    },
+    {
+      "id": "app002",
+      "name": "技术支持机器人",
+      "desc": "解答开发者和技术人员的问题",
+      "type": "0",
+      "icon": "",
+      "username": "李工程师",
+      "dataset_mapping_count": 3,
+      "create_time": "2025-01-22T10:40:15",
+      "update_time": "2025-02-28T16:25:00"
+    },
+    {
+      "id": "app003",
+      "name": "营销策略顾问",
+      "desc": "为营销团队提供策略建议和素材支持",
+      "type": "0",
+      "icon": "",
+      "username": "王经理",
+      "dataset_mapping_count": 2,
+      "create_time": "2025-02-08T11:35:42",
+      "update_time": "2025-03-02T13:50:20"
+    },
+    {
+      "id": "app004",
+      "name": "员工培训助手",
+      "desc": "支持员工培训和知识获取",
+      "type": "0",
+      "icon": "",
+      "username": "刘主管",
+      "dataset_mapping_count": 1,
+      "create_time": "2025-01-30T15:10:55",
+      "update_time": "2025-02-26T11:15:30"
+    },
+    {
+      "id": "app005",
+      "name": "智能决策流程",
+      "desc": "基于多源数据的企业决策支持系统",
+      "type": "1",
+      "icon": "",
+      "username": "张经理",
+      "dataset_mapping_count": 4,
+      "create_time": "2025-02-15T09:20:10",
+      "update_time": "2025-03-04T14:30:25"
+    }
+  ],
+  "documents": [
+    {
+      "id": "doc001",
+      "name": "产品功能说明书v2.5",
+      "char_length": 52000,
+      "paragraph_count": 128,
+      "status": "SUCCESS",
+      "is_active": true,
+      "hit_handling_method": "ALL",
+      "create_time": "2025-01-15T11:30:45",
+      "update_time": "2025-03-01T10:25:15"
+    },
+    {
+      "id": "doc002",
+      "name": "技术架构白皮书",
+      "char_length": 68000,
+      "paragraph_count": 156,
+      "status": "SUCCESS",
+      "is_active": true,
+      "hit_handling_method": "PARAGRAPH",
+      "create_time": "2025-01-20T15:42:30",
+      "update_time": "2025-02-28T14:10:22"
+    },
+    {
+      "id": "doc003",
+      "name": "API开发文档v3.2",
+      "char_length": 82000,
+      "paragraph_count": 210,
+      "status": "SUCCESS",
+      "is_active": true,
+      "hit_handling_method": "ALL",
+      "create_time": "2025-01-25T09:15:38",
+      "update_time": "2025-03-02T16:45:10"
+    },
+    {
+      "id": "doc004",
+      "name": "市场趋势分析报告",
+      "char_length": 45000,
+      "paragraph_count": 95,
+      "status": "SUCCESS",
+      "is_active": true,
+      "hit_handling_method": "PARAGRAPH",
+      "create_time": "2025-02-05T13:40:22",
+      "update_time": "2025-02-25T11:30:15"
+    },
+    {
+      "id": "doc005",
+      "name": "产品定价策略指南",
+      "char_length": 38000,
+      "paragraph_count": 82,
+      "status": "STARTED",
+      "is_active": false,
+      "hit_handling_method": "ALL",
+      "create_time": "2025-02-10T10:20:15",
+      "update_time": "2025-03-03T15:10:42"
+    },
+    {
+      "id": "doc006",
+      "name": "客户培训手册",
+      "char_length": 62000,
+      "paragraph_count": 145,
+      "status": "SUCCESS",
+      "is_active": true,
+      "hit_handling_method": "PARAGRAPH",
+      "create_time": "2025-02-15T14:55:30",
+      "update_time": "2025-03-01T09:22:18"
+    }
+  ],
+  "chatHistory": [
+    {
+      "id": "chat001",
+      "abstract": "产品功能咨询",
+      "messages": [
+        {
+          "role": "user",
+          "content": "我们产品的主要功能有哪些？",
+          "timestamp": "2025-03-01T10:15:22"
+        },
+        {
+          "role": "assistant",
+          "content": "我们的产品主要功能包括：\n1. 知识库管理：支持多种数据源导入、文档管理与向量化\n2. 应用构建：基于知识库快速创建AI应用\n3. 智能问答：精准回答问题并提供参考来源\n4. 多级审核：支持内容审核和质量把控\n5. 权限管理：细粒度的访问控制\n6. 数据分析：使用统计和性能监控",
+          "timestamp": "2025-03-01T10:15:25",
+          "sources": ["doc001", "doc002"]
+        }
+      ]
+    },
+    {
+      "id": "chat002",
+      "abstract": "API集成方案",
+      "messages": [
+        {
+          "role": "user",
+          "content": "如何将智能问答功能集成到我们的网站？",
+          "timestamp": "2025-03-02T14:30:10"
+        },
+        {
+          "role": "assistant",
+          "content": "您可以通过以下方式将智能问答功能集成到网站：\n1. REST API：直接调用我们的问答接口\n2. Web SDK：使用JavaScript SDK快速集成\n3. 嵌入式窗口：使用iframe嵌入现成的聊天窗口\n4. WebHook：设置事件触发并接收回调\n\n具体的API文档可以在开发者中心查看，包含了详细的认证方式和参数说明。",
+          "timestamp": "2025-03-02T14:30:15",
+          "sources": ["doc003"]
+        }
+      ]
+    }
+  ]
+}

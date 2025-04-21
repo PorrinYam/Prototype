@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智能问答 - 企业智能知识库应用</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body class="layout-full">
+  <!-- 头部导航栏 -->
+  <header class="header">
+    <div class="flex-between w-100">
+      <div class="flex">
+        <a href="../index.html" class="text-primary text-bold text-lg mr-20">
+          <i class="fa-solid fa-database mr-10"></i>
+          企业智能知识库
+        </a>
+
+        <nav class="main-nav">
+          <a href="datasets.html" class="nav-link">
+            <i class="fa-solid fa-layer-group mr-10"></i>知识库
+          </a>
+          <a href="applications.html" class="nav-link">
+            <i class="fa-solid fa-rocket mr-10"></i>应用管理
+          </a>
+          <a href="chat.html" class="nav-link active">
+            <i class="fa-solid fa-comments mr-10"></i>智能问答
+          </a>
+          <a href="settings.html" class="nav-link">
+            <i class="fa-solid fa-gear mr-10"></i>系统设置
+          </a>
+        </nav>
+      </div>
+
+      <div class="flex">
+        <div class="user-menu">
+          <a href="#" class="btn-text mr-10">
+            <i class="fa-solid fa-bell"></i>
+          </a>
+          <a href="#" class="btn-text mr-10">
+            <i class="fa-solid fa-user-circle"></i>
+            <span>管理员</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="chat-container">
+    <div class="chat-sidebar">
+      <div class="sidebar-header">
+        <h3>对话历史</h3>
+        <button class="btn btn-icon" id="new-chat-btn">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+
+      <div class="conversation-filter">
+        <input type="text" class="form-control" placeholder="搜索对话...">
+      </div>
+
+      <div class="conversation-list">
+        <div class="conversation-item active">
+          <div class="conversation-icon">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <div class="conversation-info">
+            <h4>产品规格查询</h4>
+            <p>今天 14:25</p>
+          </div>
+        </div>
+
+        <div class="conversation-item">
+          <div class="conversation-icon">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <div class="conversation-info">
+            <h4>财务报销政策</h4>
+            <p>昨天 09:15</p>
+          </div>
+        </div>
+
+        <div class="conversation-item">
+          <div class="conversation-icon">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <div class="conversation-info">
+            <h4>客户投诉处理流程</h4>
+            <p>3天前</p>
+          </div>
+        </div>
+
+        <div class="conversation-item">
+          <div class="conversation-icon">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <div class="conversation-info">
+            <h4>员工入职流程</h4>
+            <p>上周</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="knowledge-selector">
+        <h4>选择知识库</h4>
+        <div class="selector-body">
+          <label class="checkbox">
+            <input type="checkbox" checked>
+            <span>产品知识库</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" checked>
+            <span>客服知识库</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox">
+            <span>法律知识库</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox">
+            <span>财务制度知识库</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox">
+            <span>业务数据知识库</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-main">
+      <div class="chat-header">
+        <div>
+          <h2>产品规格查询</h2>
+          <p class="text-secondary">
+            <span class="badge badge-light">产品知识库</span>
+            <span class="badge badge-light">客服知识库</span>
+          </p>
+        </div>
+        <div class="chat-actions">
+          <button class="btn btn-icon" title="导出对话">
+            <i class="fa-solid fa-download"></i>
+          </button>
+          <button class="btn btn-icon" title="设置">
+            <i class="fa-solid fa-cog"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="chat-messages">
+        <div class="message-date-divider">
+          <span>今天</span>
+        </div>
+
+        <div class="message user-message">
+          <div class="message-avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="message-content">
+            <div class="message-header">
+              <h4>您</h4>
+              <span class="message-time">14:25</span>
+            </div>
+            <div class="message-body">
+              <p>我需要了解产品A-2000系列的规格参数和兼容性信息。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="message system-message">
+          <div class="message-avatar">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div class="message-content">
+            <div class="message-header">
+              <h4>智能助手</h4>
+              <span class="message-time">14:25</span>
+            </div>
+            <div class="message-body">
+              <p>A-2000系列是我们的高端工业控制设备，主要有以下规格参数：</p>
+              <ul>
+                <li>处理器：双核ARM Cortex-A72，主频2.5GHz</li>
+                <li>内存：8GB LPDDR4</li>
+                <li>存储：64GB eMMC闪存，可扩展</li>
+                <li>接口：4×USB 3.0，2×HDMI 2.0，1×千兆以太网</li>
+                <li>支持协议：Modbus，Profinet，EtherCAT</li>
+                <li>电源：24V DC，功耗≤15W</li>
+                <li>工作温度：-20°C 至 +60°C</li>
+              </ul>
+              <p>关于兼容性：A-2000系列向下兼容A-1000系列的所有外设和软件，同时可以与B系列控制器无缝集成。</p>
+              <div class="message-sources">
+                <div class="source-header">
+                  <i class="fa-solid fa-book"></i>
+                  <span>信息来源</span>
+                </div>
+                <div class="source-items">
+                  <a href="#" class="source-item">
+                    <div class="source-icon">
+                      <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+                    <div class="source-info">
+                      <h5>A-2000系列产品手册.pdf</h5>
+                      <p>产品知识库 · 2023年10月更新</p>
+                    </div>
+                  </a>
+                  <a href="#" class="source-item">
+                    <div class="source-icon">
+                      <i class="fa-solid fa-file-lines"></i>
+                    </div>
+                    <div class="source-info">
+                      <h5>产品兼容性清单.docx</h5>
+                      <p>技术文档 · 2023年12月更新</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="message user-message">
+          <div class="message-avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="message-content">
+            <div class="message-header">
+              <h4>您</h4>
+              <span class="message-time">14:26</span>
+            </div>
+            <div class="message-body">
+              <p>A-2000系列有哪些型号可选？不同型号之间有什么区别？</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="message system-message">
+          <div class="message-avatar">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div class="message-content">
+            <div class="message-header">
+              <h4>智能助手</h4>
+              <span class="message-time">14:26</span>
+            </div>
+            <div class="message-body">
+              <p>A-2000系列目前有三个主要型号可选：</p>
+
+              <div class="comparison-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>规格/型号</th>
+                      <th>A-2000 Basic</th>
+                      <th>A-2000 Pro</th>
+                      <th>A-2000 Enterprise</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>处理器</td>
+                      <td>双核2.0GHz</td>
+                      <td>双核2.5GHz</td>
+                      <td>四核2.5GHz</td>
+                    </tr>
+                    <tr>
+                      <td>内存</td>
+                      <td>4GB</td>
+                      <td>8GB</td>
+                      <td>16GB</td>
+                    </tr>
+                    <tr>
+                      <td>存储</td>
+                      <td>32GB</td>
+                      <td>64GB</td>
+                      <td>128GB</td>
+                    </tr>
+                    <tr>
+                      <td>接口</td>
+                      <td>2×USB, 1×HDMI</td>
+                      <td>4×USB, 2×HDMI</td>
+                      <td>6×USB, 2×HDMI, 1×DP</td>
+                    </tr>
+                    <tr>
+                      <td>扩展槽</td>
+                      <td>1</td>
+                      <td>2</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>冗余电源</td>
+                      <td>不支持</td>
+                      <td>不支持</td>
+                      <td>支持</td>
+                    </tr>
+                    <tr>
+                      <td>价格</td>
+                      <td>¥12,500</td>
+                      <td>¥18,800</td>
+                      <td>¥26,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>主要区别在于性能、扩展性和高可用性能：</p>
+              <ul>
+                <li><strong>A-2000 Basic</strong>：适合小型生产线和简单控制场景</li>
+                <li><strong>A-2000 Pro</strong>：中型系统的首选，平衡了性能和成本</li>
+                <li><strong>A-2000 Enterprise</strong>：为关键生产环境设计，提供最高性能和可靠性</li>
+              </ul>
+
+              <p>所有型号都提供3年标准保修，Enterprise版本可选5年延长保修服务。</p>
+
+              <div class="message-sources">
+                <div class="source-header">
+                  <i class="fa-solid fa-book"></i>
+                  <span>信息来源</span>
+                </div>
+                <div class="source-items">
+                  <a href="#" class="source-item">
+                    <div class="source-icon">
+                      <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+                    <div class="source-info">
+                      <h5>A-2000系列产品规格对比.pdf</h5>
+                      <p>产品知识库 · 2023年11月更新</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <div class="input-tools">
+          <button class="btn btn-icon" title="附加文件">
+            <i class="fa-solid fa-paperclip"></i>
+          </button>
+        </div>
+        <div class="input-field">
+          <textarea placeholder="输入您的问题..." rows="1"></textarea>
+        </div>
+        <div class="input-actions">
+          <button class="btn btn-icon" title="语音输入">
+            <i class="fa-solid fa-microphone"></i>
+          </button>
+          <button class="btn btn-primary btn-icon" title="发送">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-details">
+      <div class="details-header">
+        <h3>详细信息</h3>
+        <button class="btn btn-icon" id="close-details">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+
+      <div class="details-content">
+        <div class="details-section">
+          <h4>引用文档</h4>
+          <div class="document-list">
+            <div class="document-item">
+              <div class="document-icon">
+                <i class="fa-solid fa-file-pdf"></i>
+              </div>
+              <div class="document-info">
+                <h5>A-2000系列产品手册.pdf</h5>
+                <p>产品知识库 · 2023年10月更新</p>
+                <div class="document-actions">
+                  <button class="btn btn-sm btn-outline">查看</button>
+                  <button class="btn btn-sm btn-text">下载</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="document-item">
+              <div class="document-icon">
+                <i class="fa-solid fa-file-lines"></i>
+              </div>
+              <div class="document-info">
+                <h5>产品兼容性清单.docx</h5>
+                <p>技术文档 · 2023年12月更新</p>
+                <div class="document-actions">
+                  <button class="btn btn-sm btn-outline">查看</button>
+                  <button class="btn btn-sm btn-text">下载</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="document-item">
+              <div class="document-icon">
+                <i class="fa-solid fa-file-pdf"></i>
+              </div>
+              <div class="document-info">
+                <h5>A-2000系列产品规格对比.pdf</h5>
+                <p>产品知识库 · 2023年11月更新</p>
+                <div class="document-actions">
+                  <button class="btn btn-sm btn-outline">查看</button>
+                  <button class="btn btn-sm btn-text">下载</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="details-section">
+          <h4>相关问题</h4>
+          <div class="related-questions">
+            <a href="#" class="related-question">A-2000系列的安装要求有哪些？</a>
+            <a href="#" class="related-question">A-2000与A-1000系列的主要区别是什么？</a>
+            <a href="#" class="related-question">A-2000系列的软件许可政策是怎样的？</a>
+            <a href="#" class="related-question">如何将A-2000集成到现有的控制系统中？</a>
+          </div>
+        </div>
+
+        <div class="details-section">
+          <h4>会话信息</h4>
+          <div class="session-info">
+            <div class="info-item">
+              <span class="info-label">开始时间</span>
+              <span class="info-value">2023-03-05 14:25</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">问答轮次</span>
+              <span class="info-value">2</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">知识源</span>
+              <span class="info-value">产品知识库, 客服知识库</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">模型</span>
+              <span class="info-value">企业智能助手 v3.2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 引入脚本 -->
+  <script src="../assets/js/script.js"></script>
+</body>
+
+</html>
